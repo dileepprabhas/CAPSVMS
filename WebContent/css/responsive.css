@@ -1,0 +1,349 @@
+@media screen and (max-width:1028px)
+{
+	.container-login
+	{
+    height: 100% !important;
+    width: 80% !important;
+    transform: translate(24%,-18%) !important;
+	}
+	.team
+	{
+	height:450px !important;
+	}
+	#login-box
+	{
+	height:60% !important;
+	transform: translate(-50%,-55%) !important;
+	}
+	#login
+	{
+	height: 100% !important;
+    min-width: 37.4% !important;
+	}
+	#signup-box
+	{
+	height:60% !important;
+	transform: translate(-50%,-48%) !important;
+	}
+	#signup
+	{
+	height: 100% !important;
+    min-width: 37.4% !important;
+    margin-left: 38.3% !important;
+	}
+	.loader
+	{
+	left:18% !important;
+	}
+	#login-type
+	{
+    transform: translate(-50%,-55%) !important;
+    height: 61% !important;
+	 }
+}
+@media screen and (max-width:768px)
+{
+	.container-login
+	{
+    height: 100% !important;
+    width: 80% !important;
+    transform: translate(13%,-13%) !important;
+	}
+	.team
+	{
+	height:450px !important;
+	}
+	#login-box
+	{
+    height: 60% !important;
+    width:65% !important;
+    transform: translate(-50%,-59%) !important;
+	}
+	#login
+	{
+	height: 100% !important;
+    min-width: 37.4% !important;
+	}
+	#signup-box
+	{
+	height:60% !important;
+	transform: translate(-50%,-48%) !important;
+	}
+	#signup
+	{
+	height: 100% !important;
+    min-width: 37.4% !important;
+	margin-left: 53.3% !important;
+	}
+	.loader
+	{
+	left:24% !important;
+	}
+	#login-type
+	{
+    transform: translate(-50%,-58%) !important;
+    height: 61% !important;
+	 }
+}
+@media screen and (max-width:600px)
+{
+	.container-login
+	{
+	height: 100% !important;
+    width: 93% !important;
+    transform: translate(4%,-1%) !important;
+	}
+	.team
+	{
+	height:450px !important;
+	}
+	#login-box
+	{
+    height: 60% !important;
+    width:65% !important;
+    transform: translate(-50%,-59%) !important;
+	}
+	#login
+	{
+    height: 85% !important;
+    max-width: 53.4% !important;
+	}
+	#signup-box
+	{
+	height:60% !important;
+	transform: translate(-50%,-48%) !important;
+	}
+	#signup
+	{
+	height: 85% !important;
+    min-width: 37.4% !important;
+	margin-left: 53.3% !important;
+	}
+	.loader
+	{
+	left:24% !important;
+	}
+	#login-type
+	{
+    transform: translate(-50%,-58%) !important;
+    height: 61% !important;
+	 }
+}
+@media screen and (max-width:414px)
+{
+	.container-login
+	{
+	height: 100% !important;
+    width: 93% !important;
+    transform: translate(4%,-1%) !important;
+	}
+	#login-box>h2,#signup-box>h2
+	{
+		font-size: 21px !important;
+	}
+	#login-box>h3,#signup-box>h3
+	{
+    font-size: 14px !important;
+    line-height: 20px !important;
+	}
+	.team
+	{
+	height:340px !important;
+	}
+	#login-box
+	{
+	height: 99% !important;
+    width: 101% !important;
+    background-color: rgba(169, 181, 183,0.85) !important;
+    transform: translate(-50%,-47%) !important;
+    padding-top: 18px !important;
+	}
+	#login
+	{
+    height: 85% !important;
+    max-width: 53.4% !important;
+    background: transparent !important;
+	}
+	#signup-box
+	{
+    height: 100% !important;
+    width: 100% !important;
+    transform: translate(-50%,-42%) !important;
+    padding-top: 18px !important;
+    background-color:rgba(169, 181, 183,0.4) !important;
+	}
+	#signup
+	{
+	height: 85% !important;
+    min-width: 37.4% !important;
+	margin-left: 53.3% !important;
+	background: transparent !important;
+	}
+	.loader
+	{
+	left:24% !important;
+	}
+	#login-type
+	{
+    transform: translate(-50%,-89.5%) !important;
+    height: 98% !important;
+    width: 101% !important;
+	 }
+	#login-type>a>#login-btn
+	  {
+    height: 21% !important;
+    width: 85% !important;
+    margin-top: 28px !important;
+    font-size: 13px !important;
+	 }
+}
+@media screen and (max-width:375px)
+{
+	.container-login
+	{
+	height: 100% !important;
+    width: 93% !important;
+    transform: translate(4%,-1%) !important;
+	}
+	#login-box>h2,#signup-box>h2
+	{
+		font-size: 18px !important;
+	}
+	#login-box>h3,#signup-box>h3
+	{
+	font-size: 12px !important;
+    line-height: 17px !important;
+	}
+	.team
+	{
+	height:340px !important;
+	}
+	#login-box
+	{
+    height: 90% !important;
+    width: 101% !important;
+    background-color: rgba(169, 181, 183,0.85) !important;
+    transform: translate(-50%,-48%) !important;
+    padding-top: 0px !important;
+	}
+	#login
+	{
+    height: 85% !important;
+    max-width: 53.4% !important;
+    background: transparent !important;
+	}
+	#signup-box
+	{
+    height: 89% !important;
+    width: 100% !important;
+    transform: translate(-50%,-42%) !important;
+    padding-top: 2px !important;
+    background-color: rgba(169, 181, 183,0.4) !important;
+	}
+	#signup
+	{
+	height: 85% !important;
+    min-width: 37.4% !important;
+	margin-left: 53.3% !important;
+    background: transparent !important;
+	}
+	.loader
+	{
+	left:24% !important;
+	height: 30px !important;
+    width: 30px !important;
+	}
+	#login-type
+	{
+    transform: translate(-50%,-90%) !important;
+    height: 89% !important;
+    width: 101% !important;
+	 }
+	#login-type>a>#login-btn
+	  {
+     	height: 24% !important;
+    	width: 100% !important;
+   		margin-top: 28px !important;
+    	font-size: 12px !important;
+	 }
+	 #close
+	 {
+    margin-left: 73% !important;
+    margin-top: -2% !important;
+	 }
+}
+@media screen and (max-width:328px)
+{
+	.container-login
+	{
+	height: 100% !important;
+    width: 93% !important;
+    transform: translate(4%,-1%) !important;
+	}
+	#login-box>h2,#signup-box>h2
+	{
+		font-size: 18px !important;
+	}
+	#login-box>h3,#signup-box>h3
+	{
+	font-size: 12px !important;
+    line-height: 17px !important;
+	}
+	.team
+	{
+	height:340px !important;
+	}
+	#login-box
+	{
+    height: 78% !important;
+    width: 101% !important;
+    background-color: rgba(169, 181, 183,0.85) !important;
+    transform: translate(-50%,-47%) !important;
+    padding-top: 0px !important;
+	}
+	#login
+	{
+    height: 85% !important;
+    max-width: 53.4% !important;
+    background: transparent !important;
+	}
+	#signup-box
+	{
+    height: 79% !important;
+    width: 100% !important;
+    transform: translate(-50%,-42%) !important;
+    padding-top: 2px !important;
+    background-color: rgba(169, 181, 183,0.4) !important;
+	}
+	#signup
+	{
+	height: 85% !important;
+    min-width: 37.4% !important;
+	margin-left: 53.3% !important;
+    background: transparent !important;
+	}
+	.loader
+	{
+	left:24% !important;
+	height: 30px !important;
+    width: 30px !important;
+	}
+	#login-type
+	{
+    transform: translate(-50%,-89.5%) !important;
+    height: 81% !important;
+    width: 101% !important;
+	 }
+	#login-type>a>#login-btn
+	  {
+     	height: 24% !important;
+    	width: 100% !important;
+   		margin-top: 28px !important;
+    	font-size: 12px !important;
+	 }
+	 #close
+	 {
+    margin-left: 73% !important;
+    margin-top: -2% !important;
+	 }
+}
