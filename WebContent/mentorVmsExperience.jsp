@@ -74,7 +74,7 @@ h1 {
 			</div>
 			<div class="col-md-2 cart-wthree">  
 				 
-					<a href="mentorLogout.jsp" class="w3view-cart" style="color:#66bdd7;" ><i class="fa fa-sign-out" style="margin-left:15px;"></i><br>Sign Out </a>
+					<a href="mentorLogout.jsp" class="w3view-cart" style="color:#053256;" ><i class="fa fa-sign-out" style="margin-left:15px;"></i><br>Sign Out </a>
 				  	 
 			</div>
 			<div class="clearfix"></div>

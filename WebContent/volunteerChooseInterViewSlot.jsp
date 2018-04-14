@@ -177,7 +177,7 @@ h1 {
 			<div class="col-md-2 cart-wthree">  
 				<form action="ngoPreLogout.jsp" method="post"  style="float: right; margin-top:10px; display: inline-block; margin-right:40px;    "  > 
 				 
-					<button class="w3view-cart"  style="color:#66bdd7;" type="submit" name="submit"  > Sign Out </button>
+					<button class="w3view-cart"  style="color:#053256;" type="submit" name="submit"  > Sign Out </button>
 				</form>   	 
 			</div>
 			<div class="clearfix"></div>

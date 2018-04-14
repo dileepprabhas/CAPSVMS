@@ -68,7 +68,7 @@ input.invalid,select.invalid {
 }
  
 button {
-  background-color: #66bdd7;
+  background-color: #053256;
   color: #ffffff;
   border: none;
   padding: 10px 20px;
@@ -82,7 +82,7 @@ button:hover {
 }
 
 #prevBtn {
-  background-color: #66bdd7;
+  background-color: #053256;
 }
 
 /* Make circles that indicate the steps of the form: */
@@ -102,7 +102,7 @@ button:hover {
 }
 .step.finish {
   opacity: 1;
-  background-color: #66bdd7;
+  background-color: #053256;
 }
 
 </style>
@@ -159,7 +159,7 @@ button:hover {
 			<div class="col-md-2 cart-wthree">  
 				<form action="ngoPreLogout.jsp" method="post"  style="float: right; margin-top:10px; display: inline-block; margin-right:40px;    "  > 
 				 
-					<button class="w3view-cart"  style="color:#66bdd7;" type="submit" name="submit"  > Sign Out </button>
+					<button class="w3view-cart"  style="color:#053256;" type="submit" name="submit"  > Sign Out </button>
 				</form>   	 
 			</div>
 			<div class="clearfix"></div>

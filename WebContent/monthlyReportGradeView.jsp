@@ -81,7 +81,7 @@ h1 {
 			</div>
 			<div class="col-md-2 cart-wthree">  
 				 
-					<a href="mentorLogout.jsp" class="w3view-cart"  style="color:#66bdd7;" ><i class="fa fa-sign-out" style="margin-left:15px;"></i><br>Sign Out </a>
+					<a href="mentorLogout.jsp" class="w3view-cart"  style="color:#053256;" ><i class="fa fa-sign-out" style="margin-left:15px;"></i><br>Sign Out </a>
 				  	 
 			</div>
 			<div class="clearfix"></div>
@@ -199,7 +199,7 @@ String id = request.getParameter("id");
 					<table id="table1" class="table table-hover table-striped">
 					 
 						<tbody>
-							<tr style="background-color:#66bdd7;">
+							<tr style="background-color:#053256;">
 							<td  >Creativity </td>
 							<td><%=monthlyReportRs.getString("creativity") %></td>
 							<td  >Punctuality</td>
@@ -218,7 +218,7 @@ String id = request.getParameter("id");
 							<td  >Decision Making</td>
 							<td><%=monthlyReportRs.getString("decision_making") %> </td>
 						</tr>
-						<tr style="background-color:#66bdd7;">
+						<tr style="background-color:#053256;">
 						<td>Promptness </td>
 						<td><%=monthlyReportRs.getString("promptness") %> </td>
 						

@@ -1,12 +1,106 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
-  <display-name>CAPSVMS</display-name>
-  <welcome-file-list>
-    <welcome-file>index.html</welcome-file>
-    <welcome-file>index.htm</welcome-file>
-    <welcome-file>index.jsp</welcome-file>
-    <welcome-file>default.html</welcome-file>
-    <welcome-file>default.htm</welcome-file>
-    <welcome-file>default.jsp</welcome-file>
-  </welcome-file-list>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  <display-name>sarv_hitkari</display-name>
+   
+   
+  <servlet>
+    <servlet-name>AdminLogin</servlet-name>
+    <servlet-class>AdminLogin</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AdminLogin</servlet-name>
+    <url-pattern>/AdminLogin</url-pattern>
+  </servlet-mapping>
+    <servlet>
+    <servlet-name>VolunteerLogin</servlet-name>
+    <servlet-class>VolunteerLogin</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>VolunteerLogin</servlet-name>
+    <url-pattern>/VolunteerLogin</url-pattern>
+  </servlet-mapping>
+    <servlet>
+    <servlet-name>VolunteerPreLogin</servlet-name>
+    <servlet-class>VolunteerPreLogin</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>VolunteerPreLogin</servlet-name>
+    <url-pattern>/VolunteerPreLogin</url-pattern>
+  </servlet-mapping>
+   
+  
+     <servlet>
+    <servlet-name>Control</servlet-name>
+    <servlet-class>com.daniel.util.control.Control</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Control</servlet-name>
+    <url-pattern>/Control</url-pattern>
+  </servlet-mapping> 
+  <servlet>
+    <servlet-name>VolunteerEditDetails</servlet-name>
+    <servlet-class>VolunteerEditDetails</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>VolunteerEditDetails</servlet-name>
+    <url-pattern>/VolunteerEditDetails</url-pattern>
+  </servlet-mapping> 
+    <servlet>
+    <servlet-name>DisplayVolunteerPic</servlet-name>
+    <servlet-class>DisplayVolunteerPic</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DisplayVolunteerPic</servlet-name>
+    <url-pattern>/DisplayVolunteerPic</url-pattern>
+  </servlet-mapping> 
+  <servlet>
+    <servlet-name>MentorEditDetails</servlet-name>
+    <servlet-class>MentorEditDetails</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>MentorEditDetails</servlet-name>
+    <url-pattern>/MentorEditDetails</url-pattern>
+  </servlet-mapping> 
+  <servlet>
+    <servlet-name>AdminEditDetails</servlet-name>
+    <servlet-class>AdminEditDetails</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AdminEditDetails</servlet-name>
+    <url-pattern>/AdminEditDetails</url-pattern>
+  </servlet-mapping> 
+  
+  <servlet>
+    <servlet-name>DisplayMentorPic</servlet-name>
+    <servlet-class>DisplayMentorPic</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DisplayMentorPic</servlet-name>
+    <url-pattern>/DisplayMentorPic</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>MentorLogin</servlet-name>
+    <servlet-class>MentorLogin</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>MentorLogin</servlet-name>
+    <url-pattern>/MentorLogin</url-pattern>
+  </servlet-mapping> 
+  
+<context-param>
+  <param-name>EncryptionKey</param-name>
+  <param-value>5</param-value>
+</context-param>
+<context-param>
+  <param-name>EncryptionLetters</param-name>
+  <param-value>abcdefghijklmnopqrstuvwxyz</param-value>
+</context-param>
+ <context-param>
+  <param-name>EncryptionLength</param-name>
+  <param-value>10</param-value>
+</context-param>
+
+<session-config>
+    <session-timeout>60</session-timeout>
+  </session-config>
 </web-app>

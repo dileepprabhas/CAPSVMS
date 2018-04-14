@@ -3745,11 +3745,8 @@ public   String getMentorPhone(String id) throws ServletException, IOException {
 			if(getTeamsRs.next())
 			{
 				email = getTeamsRs.getString("phone");
-			}
-			System.out.println("Phone "+email);
-			
-	
-	
+			} 
+			  
 	} 
 catch (SQLException e) {
 		// TODO: handle exception
@@ -5701,6 +5698,7 @@ public   ResultSet getMonthlyReportGrades(HttpServletRequest request, HttpServle
 	return getMonthReportRs;
 
 }
+
 public   ResultSet getVolunteerMonthlyReportGrades(HttpServletRequest request, HttpServletResponse response,String id)   throws ServletException, IOException { 
 	Statement getMonthReportSt =null;
 	ResultSet getMonthReportRs = null;

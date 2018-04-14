@@ -56,11 +56,9 @@ if(adminId !=null){
     <!-- Left column -->
     <div class="templatemo-flex-row">
       <div class="templatemo-sidebar">
-        <header class="templatemo-site-header">
-          <header class="templatemo-site-header"  >
-        	<a href="index.jsp">  <img src="../images/logo2.png" alt=" " >      </a>     
-	   </header>
-        </header>
+        <header class="templatemo-site-header"> 
+        	<a href="index.jsp">  <img src="images/logo2.png" alt=" " >      </a>     
+	    </header>
         <div class="profile-photo-container">
           <img src="${pageContext.request.contextPath}/DisplayMentorPic?name=<%=adminId%>" alt="Profile Photo" class="img-responsive">  
           <div class="profile-photo-overlay"></div>
@@ -77,8 +75,8 @@ if(adminId !=null){
           </div>
         <nav class="templatemo-left-nav">          
          <ul id="exCollapsingNavbar3">
-          	<li><a href="index.jsp" class="active"><i style="color:#fff; font-size:22px;" class="fa fa-home fa-fw"></i>Home</a></li>
-            <li><a href="manageUsers.jsp?pageNumber=1" ><i  style="color:#fff; font-size:22px;" class="fa fa-users fa-fw"></i>Manage Users</a></li>
+          	<li><a href="index.jsp" class="active"><i   class="fa fa-home fa-fw"></i>Home</a></li>
+            <li><a href="manageUsers.jsp?pageNumber=1" ><i    class="fa fa-users fa-fw"></i>Manage Users</a></li>
           
           </ul>  
         </nav>
@@ -104,19 +102,7 @@ if(adminId !=null){
             <div class="panel panel-default table-responsive">
             <form id="regForm" action="${pageContext.request.contextPath}/Control?action=assignTeam" method="post" style="margin-top:0px; padding-top:30px;">  
 			  <table class="table table-striped table-bordered templatemo-user-table">
-                <thead>
-                  <tr>
-                    <td><a href="" class="white-text templatemo-sort-by">Name </a></td>
-                    <td><a href="" class="white-text templatemo-sort-by">Email</a></td>
-                    <td><a href="" class="white-text templatemo-sort-by">Contact Number</a></td>
-                    <td><a href="" class="white-text templatemo-sort-by">Gender</a></td>
-                    <td><a href="" class="white-text templatemo-sort-by">Reason </a></td>
-                    <td><a href="" class="white-text templatemo-sort-by">Skills  </a></td>
-                    <td><a href="" class="white-text templatemo-sort-by">Additional Skill   </a></td>
-                    
-                  </tr>
-                </thead>
-                <tbody>
+              
                 <% try{ %> 
 				<%  
 				 	 	  String aId = request.getParameter("aId");
@@ -126,36 +112,127 @@ if(adminId !=null){
 			%>
 			 
 			 <%  while(volunteerDetailsRs.next()){  %>
-			
-							<tr>
-								 
-								<td> 
-									<input type="text" readonly class="form-control" style="padding:10px 5px;" name="name" value="<%=volunteerDetailsRs.getString("volunteer_name") %>" >					
-								</td>
-								<td>
-									<input type="text" readonly name="email" style="padding:10px 5px;"  class="form-control"  value="<%=volunteerDetailsRs.getString("email_id") %>" >
-								</td>  
-								<td>
-									<input type="text" readonly name="email_status" style="padding:10px 5px;" class="form-control"   value="<%=volunteerDetailsRs.getString("contact_num") %>" >
-								</td>
-								<td>
-									<input type="text" readonly name="email_status" style="padding:10px 5px;" class="form-control" style="width:90px;"   value="<%=volunteerDetailsRs.getString("gender") %>" >
-								</td> 	
-								<td>
-									 <textarea readonly style="padding:10px 5px;" rows="2" class="form-control" ><%=volunteerDetailsRs.getString("why_volunteer") %></textarea>
-								</td>  
-								<td>
-									<textarea readonly style="padding:10px 5px;"   rows="2" class="form-control" ><%=volunteerDetailsRs.getString("skills") %></textarea>
-								</td> 
-								<td>
-									<textarea readonly style="padding:10px 5px;"  rows="2" class="form-control"><%=volunteerDetailsRs.getString("addi_skills") %></textarea>
-								</td> 
-								 
-								 
-							</tr>
+			  <thead>
+                  <tr>
+                    <td><a href="" class="white-text templatemo-sort-by">Name </a></td>
+                    <td><a href="" class="white-text templatemo-sort-by">Register Number </a></td>
+                     <td><a href="" class="white-text templatemo-sort-by">Course </a></td>
+                      <td><a href="" class="white-text templatemo-sort-by">Semester</a></td>      
+                        
+                        </tr>
+                        </thead>
+                        
+                        <tbody>
+	                        <tr>
+	                        	<td>
+	                        		<input type="text" readonly class="form-control" style="padding:10px 5px;" name="name" value="<%=volunteerDetailsRs.getString("volunteer_name") %>" >
+	                        	</td>
+	                        	<td>
+	                        		<input type="text" readonly class="form-control" style="padding:10px 5px;" name="name" value="<%=volunteerDetailsRs.getString("username") %>" >
+	                        	</td>
+	                        	<td>
+	                        		<input type="text" readonly class="form-control" style="padding:10px 5px;" name="name" value="<%=volunteerDetailsRs.getString("course") %>" >
+	                        	</td>
+	                        	<td>
+	                        		<input type="text" readonly class="form-control" style="padding:10px 5px;" name="name" value="<%=volunteerDetailsRs.getString("yos") %>" >
+	                        	</td>
+	                        </tr>
+                        </tbody>
+                         <thead>
+                  			<tr>
+                    			<td><a href="" class="white-text templatemo-sort-by">Email</a></td>
+                      			<td><a href="" class="white-text templatemo-sort-by">Current Contact Number</a></td>    
+                    			<td><a href="" class="white-text templatemo-sort-by">Contact Number</a></td>
+                    			<td><a href="" class="white-text templatemo-sort-by">Gender</a></td>
+                      		</tr>
+                      	</thead>
+                      	<tbody>
+	                        <tr>
+	                        	<td>
+	                        		<input type="text" readonly class="form-control" style="padding:10px 5px;" name="name" value="<%=volunteerDetailsRs.getString("email_id") %>" >
+	                        	</td>
+	                        	<td>
+	                        		<input type="text" readonly class="form-control" style="padding:10px 5px;" name="name" value="<%=volunteerDetailsRs.getString("contact_num") %>" >
+	                        	</td>
+	                        	<td>
+	                        		<input type="text" readonly class="form-control" style="padding:10px 5px;" name="name" value="<%=volunteerDetailsRs.getString("current_contact_num") %>" >
+	                        	</td>
+	                        	<td>
+	                        		<input type="text" readonly class="form-control" style="padding:10px 5px;" name="name" value="<%=volunteerDetailsRs.getString("gender") %>" >
+	                        	</td>
+	                        </tr>
+                        </tbody>
+                      
+                      
+            
+	                     <thead>
+	                		<tr>
+	                      		<td><a href="" class="white-text templatemo-sort-by">Wing</a	></td>
+	                      		<td><a href="" class="white-text templatemo-sort-by">Branch</a></td>
+	                       		<td><a href="" class="white-text templatemo-sort-by">Approve Status</a></td>
+	                       		<td><a href="" class="white-text templatemo-sort-by">Registration Date</a></td>
+	                       	</tr>
+	                    </thead> 
+                
+                <tbody>
+					<tr>
 						 
+						<td> 
+							<input type="text" readonly class="form-control" style="padding:10px 5px;" name="name" value="<%=volunteerDetailsRs.getString("team") %>" >					
+						</td>
+						<td>
+							<input type="text" readonly name="email" style="padding:10px 5px;"  class="form-control"  value="<%=ct.getBranchName(volunteerDetailsRs.getString("branch_id")) %>" >
+						</td>  
+						<td>
+							<input type="text" readonly name="email_status" style="padding:10px 5px;" class="form-control"   value="<%=volunteerDetailsRs.getString("approve_status") %>" >
+						</td>
+						<td>
+							<input type="text" readonly name="email_status" style="padding:10px 5px;" class="form-control" style="width:90px;"  value="<%=volunteerDetailsRs.getString("registration_date") %>" >
+						</td> 	
+						
+					<tr>
+				</tbody>
+				<thead>
+					<tr>
+						<td><a href="" class="white-text templatemo-sort-by">Why CAPS?</a></td>
+                    	<td><a href="" class="white-text templatemo-sort-by">Why Volunteership ? </a></td>
+	                    <td><a href="" class="white-text templatemo-sort-by">Skills  </a></td>
+	                   	<td><a href="" class="white-text templatemo-sort-by">Additional Skill   </a></td>	                   	
+	             	<tr>
+                 </thead>
+                 <tbody>
+                 	<tr>
+						<td>
+							 <textarea readonly style="padding:10px 5px;" rows="2" class="form-control" ><%=volunteerDetailsRs.getString("why_caps") %></textarea>
+						</td>
+						<td>
+							 <textarea readonly style="padding:10px 5px;" rows="2" class="form-control" ><%=volunteerDetailsRs.getString("why_volunteer") %></textarea>
+						</td>  
+						<td>
+							<textarea readonly style="padding:10px 5px;"   rows="2" class="form-control" ><%=volunteerDetailsRs.getString("skills") %></textarea>
+						</td> 
+						<td>
+							<textarea readonly style="padding:10px 5px;"  rows="2" class="form-control"><%=volunteerDetailsRs.getString("addi_skills") %></textarea>
+						</td> 
+						 
+						  
+					</tr>
+				</tbody>
+				<thead>
+					<tr>
+						<td colspan="4" ><a href="" class="white-text templatemo-sort-by"> Prior Experience and Achievements</a></td>
+                    <tr>
+                 </thead>
+                 <tbody>
+                 	<tr>
+						<td colspan="4">
+							<textarea readonly style="padding:10px 5px;"  rows="2" class="form-control"><%=volunteerDetailsRs.getString("backgrounds_achivements") %></textarea>
+						</td> 
+						  
+					</tr>
+				</tbody>
 							<%  } %> 
-                </tbody>
+               
               </table>  
             
 					</form> 

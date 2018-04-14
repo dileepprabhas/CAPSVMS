@@ -68,7 +68,7 @@ input.invalid,select.invalid {
 }
  
 button {
-  background-color: #66bdd7;
+  background-color: #053256;
   color: #ffffff;
   border: none;
   padding: 10px 20px;
@@ -82,7 +82,7 @@ button:hover {
 }
 
 #prevBtn {
-  background-color: #66bdd7;
+  background-color: #053256;
 }
 
 /* Make circles that indicate the steps of the form: */
@@ -102,7 +102,7 @@ button:hover {
 }
 .step.finish {
   opacity: 1;
-  background-color: #66bdd7;
+  background-color: #053256;
 }
 
 </style>
@@ -138,7 +138,7 @@ button:hover {
 			</div>  
 			<div class="col-md-2 cart-wthree">  
 				 
-					<a href="volunteerPreLogout.jsp" class="w3view-cart"  style="color:#66bdd7;" ><i class="fa fa-sign-out" style="margin-left:15px;"></i><br>Sign Out </a>
+					<a href="volunteerPreLogout.jsp" class="w3view-cart"  style="color:#053256;" ><i class="fa fa-sign-out" style="margin-left:15px;"></i><br>Sign Out </a>
 			</div>
 			  	    
 			<div class="clearfix"></div>

@@ -85,7 +85,7 @@ h1 {
 			</div>
 			<div class="col-md-2 cart-wthree">  
 				 
-					<a href="volunteerLogout.jsp" class="w3view-cart"  style="color:#66bdd7;" ><i class="fa fa-sign-out" style="margin-left:15px;"></i><br>Sign Out </a>
+					<a href="volunteerLogout.jsp" class="w3view-cart"  style="color:#053256;" ><i class="fa fa-sign-out" style="margin-left:15px;"></i><br>Sign Out </a>
 				  	 
 			</div>
 			<div class="clearfix"></div>
@@ -103,26 +103,21 @@ h1 {
 	int pageNumber=0, nextRecordCount=10;	
 	Control ct = new Control();
 %>
-<% 
-volunteerId = (String)session.getAttribute("volunteerId"); 
-	if(volunteerId == null)
-	{	
-		volunteerId = (String)session.getAttribute("volunteerId"); 
-		if(volunteerId==null){ 
-			response.sendRedirect("volunteerLogin.jsp?action=LoginAgain"); 
+<%
+	volunteerId = (String) session.getAttribute("volunteerId");
+		if (volunteerId == null) {
+			volunteerId = (String) session.getAttribute("volunteerId");
+			if (volunteerId == null) {
+				response.sendRedirect("volunteerLogin.jsp?action=LoginAgain");
+			}
 		}
-	} 
-	volunteerStatus  = ct.checkVolunteerStatus(request, response,volunteerId);  
-} catch (Exception e){ 	 	
-}
-finally
-{
+		volunteerStatus = ct.checkVolunteerStatus(request, response, volunteerId);
+	} catch (Exception e) {
+	} finally {
 
-}
-if(volunteerStatus == 1){
-String id = request.getParameter("id"); 
-
-
+	}
+	if (volunteerStatus == 1) {
+		String id = request.getParameter("id"); 
 %>
  
  	
@@ -208,13 +203,13 @@ String id = request.getParameter("id");
          
         <div  class="col-md-10 col-lg-9 col-sm-9 col-xs-12" style="padding:3px 0px;">
 	 	 
-			 <%monthlyReportRs = ct.getMonthlyReportGrades(request, response , id); %>
+			 <%monthlyReportRs = ct.getVolunteerMonthlyReportGrades(request, response , id); %>
 				<div class="data">
 				<%while(monthlyReportRs.next()){ %>
 					<table id="table1" class="table table-hover table-striped">
 					 
 						<tbody>
-							<tr style="background-color:#66bdd7;">
+							<tr style="background-color:#053256;">
 							<td  >Creativity </td>
 							<td><%=monthlyReportRs.getString("creativity") %></td>
 							<td  >Punctuality</td>
@@ -233,7 +228,7 @@ String id = request.getParameter("id");
 							<td  >Decision Making</td>
 							<td><%=monthlyReportRs.getString("decision_making") %> </td>
 						</tr>
-						<tr style="background-color:#66bdd7;">
+						<tr style="background-color:#053256;">
 						<td>Promptness </td>
 						<td><%=monthlyReportRs.getString("promptness") %> </td>
 						
@@ -257,10 +252,7 @@ String id = request.getParameter("id");
 					</table>
 					 
 					<%} %>
-					 </div>
-			 
-	 	 
-	 	   
+					 </div> 
     	</div>
  	</div>
 </div>

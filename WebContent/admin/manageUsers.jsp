@@ -62,11 +62,9 @@ if(adminId !=null){
     <!-- Left column -->
     <div class="templatemo-flex-row">
       <div class="templatemo-sidebar">
-        <header class="templatemo-site-header">
-          <header class="templatemo-site-header"  >
-        	<a href="index.jsp">  <img src="../images/logo2.png" alt=" " >      </a>   
-	   </header>
-        </header>
+        <header class="templatemo-site-header"> 
+        	<a href="index.jsp">  <img src="images/logo2.png" alt=" " >      </a>   
+	   </header> 
         <div class="profile-photo-container">
           <img src="${pageContext.request.contextPath}/DisplayMentorPic?name=<%=adminId%>" alt="Profile Photo" class="img-responsive">  
           <div class="profile-photo-overlay"></div>
@@ -83,8 +81,8 @@ if(adminId !=null){
           </div>
         <nav class="templatemo-left-nav">          
           <ul id="exCollapsingNavbar3">
-            <li><a href="index.jsp"><i style="color:#fff; font-size:22px;" class="fa fa-home fa-fw"></i>Home</a></li>
-            <li><a href="manageUsers.jsp?pageNumber=1" class="active"><i  style="color:#fff; font-size:22px;" class="fa fa-users fa-fw"></i>Manage Users</a></li>
+            <li><a href="index.jsp"><i class="fa fa-home fa-fw"></i>Home</a></li>
+            <li><a href="manageUsers.jsp?pageNumber=1" class="active"><i  class="fa fa-users fa-fw"></i>Manage Users</a></li>
              </ul>  
         </nav>
       </div>
@@ -106,7 +104,7 @@ if(adminId !=null){
             <div class="panel panel-default table-responsive">
             <div class="panel-heading templatemo-position-relative"><h2 class="text-uppercase">Applications</h2></div>
          
-            <form id="regForm" action="${pageContext.request.contextPath}/Control?action=volunteerApproval" name="f1"  onSubmit="return validateChecks1()" method="post" style="margin-top:0px; padding-top:30px;">  
+            <form id="regForm" action="${pageContext.request.contextPath}/Control?action=volunteerApproval" name="f1"  onSubmit="return validateChecks1()" method="post" style="margin-top:0px; padding-top:0px;">  
 			  <table class="table table-striped table-bordered templatemo-user-table">
                 <thead>
                   <tr>
@@ -185,7 +183,7 @@ if(adminId !=null){
             <div class="panel panel-default table-responsive">
              <div class="panel-heading templatemo-position-relative"><h2 class="text-uppercase">Volunteers</h2></div>
               
-            <form id="regForm" action="${pageContext.request.contextPath}/Control?action=assignTeam" name="f2" onSubmit="return validateChecks2()" method="post" style="margin-top:0px; padding-top:30px;">  
+            <form id="regForm" action="${pageContext.request.contextPath}/Control?action=assignTeam" name="f2" onSubmit="return validateChecks2()" method="post" style="margin-top:0px; padding-top:0px;">  
 			  <table class="table table-striped table-bordered templatemo-user-table">
                 <thead>
                   <tr>
@@ -293,7 +291,7 @@ if(adminId !=null){
             <div class="panel panel-default table-responsive">
              <div class="panel-heading templatemo-position-relative"><h2 class="text-uppercase">Mentors</h2></div>
               
-            <form id="regForm" action="${pageContext.request.contextPath}/Control?action=updateMentorTeams" name="f2" onSubmit="return validateChecks3()" method="post" style="margin-top:0px; padding-top:30px;">  
+            <form id="regForm" action="${pageContext.request.contextPath}/Control?action=updateMentorTeams" name="f2" onSubmit="return validateChecks3()" method="post" style="margin-top:0px; padding-top:0px;">  
 			  <table class="table table-striped table-bordered templatemo-user-table">
                 <thead>
                   <tr>

@@ -75,7 +75,7 @@ h1 {
 			</div>
 			<div class="col-md-2 cart-wthree">  
 				 
-					<a href="volunteerLogout.jsp" class="w3view-cart"  style="color:#66bdd7;" ><i class="fa fa-sign-out" style="margin-left:15px;"></i><br>Sign Out </a>
+					<a href="volunteerLogout.jsp" class="w3view-cart"  style="color:#053256;" ><i class="fa fa-sign-out" style="margin-left:15px;"></i><br>Sign Out </a>
 				  	 
 			</div>
 			<div class="clearfix"></div>
@@ -203,7 +203,7 @@ if(volunteerStatus == 1){
 			 
 				 <%while(projectsRs.next()){ %>
 					<li>
-						<div class="collapsible-header active"><p style="padding:10px; background-color:#66bdd7; font-size:14px;">
+						<div class="collapsible-header active"><p style="padding:10px; background-color:#053256; font-size:14px;">
 							<span class="glyphicon glyphicon-pushpin" style="font-size:20px; color:#fff; font-size:22px; font-style: bold;"></span>&nbsp;&nbsp;
 							<%=projectsRs.getString("project_title") %>
 							

@@ -27,11 +27,11 @@
 input[type="submit"]
 {
 	background-color:white;
-	color:#66bdd7; 
+	color:#053256; 
 }
 input[type="submit"]:hover
 {
-	background-color: #66bdd7; 
+	background-color: #053256; 
 	color:white;
 }
 
@@ -72,7 +72,7 @@ if(adminId !=null){
     <div class="templatemo-flex-row">
       <div class="templatemo-sidebar">
         <header class="templatemo-site-header"  >
-        	 <a href="index.jsp">  <img src="../images/logo2.png" alt=" " >      </a>   
+        	 <a href="index.jsp">  <img src="images/logo2.png" alt=" " >      </a>   
 	   </header>
         <div class="profile-photo-container">
           <img src="${pageContext.request.contextPath}/DisplayMentorPic?name=<%=adminId%>" alt="Profile Photo" class="img-responsive">  
@@ -90,8 +90,8 @@ if(adminId !=null){
         </div>
         <nav class="templatemo-left-nav">          
           <ul id="exCollapsingNavbar3">
-          	<li><a href="index.jsp" class="active"><i style="color:#fff; font-size:22px;" class="fa fa-home fa-fw"></i>Home</a></li>
-            <li><a href="manageUsers.jsp?pageNumber=1" ><i  style="color:#fff; font-size:22px;" class="fa fa-users fa-fw"></i>Manage Users</a></li>
+          	<li><a href="index.jsp" class="active"><i   class="fa fa-home fa-fw"></i>Home</a></li>
+            <li><a href="manageUsers.jsp?pageNumber=1" ><i    class="fa fa-users fa-fw"></i>Manage Users</a></li>
           
           </ul>  
         </nav>

@@ -3187,8 +3187,8 @@ fieldset[disabled] .btn-primary.focus {
 }
 .btn-success:hover {
   color: #fff;
-  background-color: rgba(102, 189, 215, 0.7) !important;
-  border-color: rgba(102, 189, 215, 0.7) !important;
+  background-color: rgba(5, 50, 86, 0.7) !important;
+  border-color: rgba(5, 50, 86, 0.7) !important;
 }
 .btn-success:active,
 .btn-success.active,
@@ -3467,7 +3467,7 @@ input[type="submit"].btn-block,
 input[type="reset"].btn-block,
 input[type="button"].btn-block {
   width: 100%;
-  background: #66bdd7;
+  background: #053256;
 }
 .fade {
   opacity: 0;

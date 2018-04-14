@@ -27,11 +27,11 @@
 		var i=0,j=0,k=0,count=0;
 		j=i;
 		$(".pince:last-child").attr("id","top-news");	
-		 do
+		/* do
 		{
 			count++;
 			k++;
-			}while($(".pince:eq("+k+")").attr("id")!="top-news"); 
+			}while($(".pince:eq("+k+")").attr("id")!="top-news"); */
 		$("#login-btn").click(function(){
 			$("#login-box").animate({marginLeft:"-60%",opacity:"0.1"},"slow","swing");
 			$(".loader").show();

@@ -75,7 +75,7 @@ h1 {
 			</div>
 			<div class="col-md-2 cart-wthree">  
 				 
-					<a href="mentorLogout.jsp" class="w3view-cart"  style="color:#66bdd7;" ><i class="fa fa-sign-out" style="margin-left:15px;"></i><br>Sign Out </a>
+					<a href="mentorLogout.jsp" class="w3view-cart"  style="color:#053256;" ><i class="fa fa-sign-out" style="margin-left:15px;"></i><br>Sign Out </a>
 				  	 
 			</div>
 			<div class="clearfix"></div>
@@ -195,7 +195,7 @@ if(mentorStatus == 1){
 				<ul> 
 					<a href="viewVolunteerMonthlyReport.jsp?vId=<%=volunteerDetailsRs.getString("id")%>" style="color:#333; text-decoration:none;">
 						<li style="list-style:none;" >
-							<div class="collapsible-header active" style="background:#66bdd7;"><p style="padding:5px; font-size:14px;">
+							<div class="collapsible-header active" style="background:#053256;"><p style="padding:5px; font-size:14px;">
 							  	<img style="display:inline-block; width:50px; height:50px; border-radius:50%; margin-lefT:10px; border-style:none; "  src="DisplayVolunteerPic?name=<%=volunteerDetailsRs.getString("id")%>" >&nbsp;&nbsp;
 								<%= volunteerDetailsRs.getString("volunteer_name") %>
 							 	<span style="float: right; margin-top:10px; margin-right:10px;" ><span class="fa fa-users" style="text-align: right; font-size:22px;  font-style: bold; "> </span> &nbsp;&nbsp; 
