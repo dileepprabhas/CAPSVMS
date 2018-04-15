@@ -280,6 +280,14 @@ public class Control extends HttpServlet {
 		{   
 			updateMentorTeams(request,response); 
 		}
+		else if(action.equals("addDesignations"))
+		{   
+			addDesignations(request,response); 
+		}
+		else if(action.equals("assignDesignation"))
+		{   
+			assignDesignation(request,response); 
+		}
 		  
 		  
 	}
@@ -409,6 +417,90 @@ public void addFaqDetails( HttpServletRequest request, HttpServletResponse respo
 						 addfaqPs.executeUpdate();	
  						  
 						response.sendRedirect("admin/index.jsp?action=FaqAdded");
+						/*
+						RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("adminIndex.jsp?pageNumber=1#tab2");
+						*/
+						/*RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("adminIndex.jsp?pageNumber=1#section02");
+				*/ }   
+				 catch (SQLException e) {
+						// TODO: handle exception
+					e.printStackTrace();
+					}
+				 catch (Exception e) {
+						// TODO: handle exception
+						 e.printStackTrace();
+					} finally {
+						if(addfaqPs!=null)  
+						  try {
+							  addfaqPs.close();
+							} catch (SQLException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							}  
+					 }  
+				 }  
+	}
+			 
+		 catch (SQLException e) {
+				// TODO: handle exception
+			e.printStackTrace();
+			}
+		 catch (Exception e) {
+				// TODO: handle exception
+				 e.printStackTrace();
+			}
+		 finally {
+			  if(faqSt!=null)
+					try {
+						faqSt.close();
+					} catch (SQLException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					} 
+	        	 if(faqSt!=null)
+					try {
+						faqSt.close();
+					} catch (SQLException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					} 
+		 		}
+		}
+		else
+		{
+			response.sendRedirect("../adminLogin.jsp?action=LoginAgain");
+		}
+	 	out.close();  
+	}
+public void addDesignations( HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	
+	response.setContentType("text/html");
+    PrintWriter out = response.getWriter();  
+	String designation = request.getParameter("designation"); 
+	Statement faqSt = null;
+	ResultSet faqRs = null;
+	 HttpSession session = request.getSession();
+		String adminId = (String)session.getAttribute("adminId");
+		if(adminId !=null) {
+	 
+	try {
+		faqSt = connection.createStatement();
+		String checkFaqQ = "select designation_name from designations where designation_name = '"+designation+"'";
+		faqRs = faqSt.executeQuery(checkFaqQ);
+			
+		 		if (faqRs.next())	{
+		 			response.sendRedirect("admin/index.jsp?action=DesignationExists");
+				 }
+				 else   { 
+					 PreparedStatement addfaqPs =null;
+					 try {
+						 String addfaqQ ="insert into designations (designation_name) values(?)";
+						
+						 addfaqPs  =  connection.prepareStatement(addfaqQ);
+						 addfaqPs.setString(1, designation); 
+						 addfaqPs.executeUpdate();	
+ 						  
+						response.sendRedirect("admin/index.jsp?action=DesignationAdded");
 						/*
 						RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("adminIndex.jsp?pageNumber=1#tab2");
 						*/
@@ -853,6 +945,38 @@ public   ResultSet getAcademicSkill() throws ServletException, IOException {
 	try {  				
 		getTeamsSt = connection.createStatement();
 			String query = "select *   from academic_skills";
+			getTeamsRs = getTeamsSt.executeQuery(query);
+			 
+	} 
+catch (SQLException e) {
+		// TODO: handle exception
+	e.printStackTrace();
+	}
+ catch (Exception e) {
+		// TODO: handle exception
+		 e.printStackTrace();
+	}
+	finally {
+		
+		/*if(NgoDetailSt!=null)
+			try {
+				NgoDetailSt.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}*/
+    	 
+	}
+	return getTeamsRs;
+
+	}
+public   ResultSet getDesignations() throws ServletException, IOException { 
+	Statement getTeamsSt =null;
+	ResultSet getTeamsRs = null;
+	  
+	try {  				
+		getTeamsSt = connection.createStatement();
+			String query = "select * from designations";
 			getTeamsRs = getTeamsSt.executeQuery(query);
 			 
 	} 
@@ -1648,7 +1772,51 @@ public   int getVolunteerTeamProjectCount(HttpServletRequest request, HttpServle
 	}
 return totalCount; 
 }
+public   ResultSet getCoreMeeting(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException { 
+	Statement volunteerCountSt =null;
+	ResultSet volunteerCountRs = null;
+	 
 
+	HttpSession session = request.getSession();
+	String adminId = (String)session.getAttribute("adminId");
+	if(adminId!= null) {
+		try {  				
+				volunteerCountSt = connection.createStatement();
+				volunteerCountRs = volunteerCountSt.executeQuery("select * from sub_admin_minutes_meeting inner join admin on sub_admin_minutes_meeting.admin_id ='"+adminId+"' and admin.id ='"+adminId+"' where admin.id='"+adminId+"' order by sub_admin_minutes_meeting.id desc ");
+			 
+			} 
+			catch (SQLException e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			}
+		 catch (Exception e) {
+				// TODO: handle exception
+				 e.printStackTrace();
+			}
+			finally {
+				
+				/* if(volunteerCountSt!=null)
+					try {
+						volunteerCountSt.close();
+					} catch (SQLException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					} 
+				 if(volunteerCountRs!=null)
+						try {
+							volunteerCountRs.close();
+						} catch (SQLException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						} */
+			}
+	}
+	else
+	{
+		response.sendRedirect("adminLogin.jsp?action=LoginAgain"); 
+	}
+return volunteerCountRs; 
+}
 public   int getVolunteerBranchProjectCount(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException { 
 	Statement volunteerCountSt =null;
 	ResultSet volunteerCountRs = null;
@@ -2004,6 +2172,49 @@ public   int AdminVolunteerCount() throws ServletException, IOException {
 			volunteerCountSt = connection.createStatement();
 			 
 			volunteerCountRs = volunteerCountSt.executeQuery("select count(id) from volunteer_registration where approve_status ='Approved' ");
+		
+			if(volunteerCountRs.next())
+			{
+				totalCount = Integer.parseInt(volunteerCountRs.getString(1));
+			}
+		  
+		} 
+		catch (SQLException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+	 catch (Exception e) {
+			// TODO: handle exception
+			 e.printStackTrace();
+		}
+		finally {
+			
+			 if(volunteerCountSt!=null)
+				try {
+					volunteerCountSt.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} 
+			 if(volunteerCountRs!=null)
+					try {
+						volunteerCountRs.close();
+					} catch (SQLException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					} 
+		}
+return totalCount; 
+}
+public   int adminProfileCount() throws ServletException, IOException { 
+	Statement volunteerCountSt =null;
+	ResultSet volunteerCountRs = null;
+	int totalCount = 0; 
+	
+	try {  				
+			volunteerCountSt = connection.createStatement();
+			 
+			volunteerCountRs = volunteerCountSt.executeQuery("select count(id) from admin where approve_status ='Approved' ");
 		
 			if(volunteerCountRs.next())
 			{
@@ -2697,7 +2908,7 @@ public   ResultSet volunteerDetails( int pageNumber, int nextRecordCount)throws 
   
   	try {  				
   			volunteerDetailsSt = connection.createStatement();
-  			volunteerDetailsRs = volunteerDetailsSt.executeQuery("select * from volunteer_registration where approve_status='Approved' limit "+(pageNumber*10)+","+nextRecordCount);
+  			volunteerDetailsRs = volunteerDetailsSt.executeQuery("select * from volunteer_registration where approve_status='Approved' order by volunteer_name limit "+(pageNumber*10)+","+nextRecordCount);
 		  } 
   	catch (SQLException e) {
 		// TODO: handle exception
@@ -2777,7 +2988,7 @@ public   ResultSet teamVolunteerDetails( int pageNumber, int nextRecordCount, St
 	  	    	 }
 	  	     }
   			volunteerDetailsSt = connection.createStatement();
-  			String query ="select * from volunteer_registration where approve_status='Approved' and team in("+s+") and branch_id = '"+branchId+"'   limit "+(pageNumber*10)+","+nextRecordCount;
+  			String query ="select * from volunteer_registration where approve_status='Approved' and team in("+s+") and branch_id = '"+branchId+"' order by volunteer_name   limit "+(pageNumber*10)+","+nextRecordCount;
   			volunteerDetailsRs = volunteerDetailsSt.executeQuery(query);
 		 
   			
@@ -2834,6 +3045,65 @@ public void assignTeam( HttpServletRequest request, HttpServletResponse response
 				 }  
 		   	}  
 	   		response.sendRedirect("admin/manageUsers.jsp?action=TeamBranchAssigned&pageNumber="+pageNumber);
+	   	 
+		}  
+	 catch (SQLException e) {
+		// TODO: handle exception
+		 e.printStackTrace();
+		}
+	 catch (Exception e) {
+			// TODO: handle exception
+			 e.printStackTrace();
+		}
+	 finally {
+		  if(updateTeamPs!=null)
+				try {
+					updateTeamPs.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}  
+	 		}
+		}
+	else {
+	response.sendRedirect("adminLogin.jsp?action=LoginAgain"); 
+	}
+	out.close(); 
+	 
+	}
+public void assignDesignation( HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	
+	response.setContentType("text/html");
+    PrintWriter out = response.getWriter();  
+    PreparedStatement updateTeamPs = null;
+	
+	HttpSession session = request.getSession();
+	String adminId = (String)session.getAttribute("adminId");
+	if(adminId !=null) {
+	 
+	try { 
+	   		String volunteerIds[] = request.getParameterValues("volunteerIds"); 
+		   	String designation = request.getParameter("designation");  
+		   	
+		  
+		   	
+		   	String pageNumber = request.getParameter("pageNumber"); 
+		   	DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+ 			Date date = new Date();  
+		   	if(volunteerIds != null)
+		   	{
+		   		 for ( int i=0; i<volunteerIds.length;i++ )
+				 {  
+		   			updateTeamPs = connection.prepareStatement("insert into volunteer_designation (designation_id,volunteer_registration_id,date_given,admin_id) values(?,?,?,?)  ");  
+		   			updateTeamPs.setString(1, designation);  
+		   			updateTeamPs.setString(2, volunteerIds[i]);  
+		   			updateTeamPs.setString(3, dateFormat.format(date));  
+		   			updateTeamPs.setString(4, adminId);  
+		   			
+		   			updateTeamPs.executeUpdate(); 
+				 }  
+		   	}  
+	   		response.sendRedirect("admin/usersDesignation.jsp?action=DesignationAssigned&pageNumber="+pageNumber);
 	   	 
 		}  
 	 catch (SQLException e) {
@@ -2955,8 +3225,7 @@ public void createMentor( HttpServletRequest request, HttpServletResponse respon
 			 			team1 = team1+team[j]+" , ";
 			 		}
 			 		team1 = team1.substring(0,team1.length()-3);
-			 		System.out.println("team length ="+team.length);
-			 		System.out.println("team ="+team1);
+			 		 
 			 		String branch=request.getParameter("branch");  
 			 		String status = "Approved";
 			 		
@@ -4240,7 +4509,7 @@ public   ResultSet getTeamProject(HttpServletRequest request, HttpServletRespons
 		if(adminId !=null) {
 		try {  				
 				getTeamProjectSt = connection.createStatement();
-				String query = "select *  from team_project where admin_id = '"+adminId+"' order by id desc limit "+(pageNumber*10)+","+nextRecordCount;
+				String query = "select *  from team_project where admin_id = '"+adminId+"' order by tproject_title  limit "+(pageNumber*10)+","+nextRecordCount;
 				getTeamProjectRs = getTeamProjectSt.executeQuery(query);
 				  
 		} 
@@ -4773,7 +5042,7 @@ public   ResultSet getBranchProject(HttpServletRequest request, HttpServletRespo
 		if(adminId !=null) {
 		try {  				
 				getTeamProjectSt = connection.createStatement();
-				String query = "select *  from branch_project where admin_id = '"+adminId+"' order by id desc limit "+(pageNumber*10)+","+nextRecordCount;
+				String query = "select *  from branch_project where admin_id = '"+adminId+"' order by bproject_title  limit "+(pageNumber*10)+","+nextRecordCount;
 				getTeamProjectRs = getTeamProjectSt.executeQuery(query);
 				  
 		} 
@@ -5607,7 +5876,53 @@ public   ResultSet getWorkDiary(HttpServletRequest request, HttpServletResponse 
 	return getTraningRs;
 
 }
+public   ResultSet getBranchProfiles(HttpServletRequest request, HttpServletResponse response)   throws ServletException, IOException { 
+	Statement getTraningSt =null;
+	ResultSet getTraningRs = null;
+	HttpSession session = request.getSession();
+	String volunteerId = (String)session.getAttribute("adminId");
+	if(volunteerId !=null) {
+	  Control ct = new Control();
+	  
+	try {  				
+		
+			getTraningSt = connection.createStatement();
+			String query = "select id, name  from admin where branch_id='"+ct.getMentorBranch(volunteerId)+"'";
+			getTraningRs = getTraningSt.executeQuery(query);
+			 
+		} 
+	catch (SQLException e) {
+			// TODO: handle exception
+		e.printStackTrace();
+		}
+	 catch (Exception e) {
+			// TODO: handle exception
+			 e.printStackTrace();
+		}
+		finally {
+			
+			 /*if(getTeamsSt!=null)
+				try {
+					getTeamsSt.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			 if(getTeamsRs!=null)
+					try {
+						getTeamsRs.close();
+					} catch (SQLException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					} */
+		}
+	} 
+	else{
+		response.sendRedirect("adminLogin.jsp?action=LoginAgain");
+	}
+	return getTraningRs;
 
+}
 public   ResultSet getMonthlyReport(HttpServletRequest request, HttpServletResponse response)   throws ServletException, IOException { 
 	Statement getMonthReportSt =null;
 	ResultSet getMonthReportRs = null;
@@ -5850,7 +6165,7 @@ public  String getTeamProjectStatus(HttpServletRequest request, HttpServletRespo
 		try {  				
 				
 				getAssignProjectSt = connection.createStatement();
-			  	String query = "select enroll_status  from team_project_enrollment where  volunteer_registrationg_id = '"+volunteerId+"' and team_project_id ='"+id+"'";
+			  	String query = "select enroll_status  from team_project_enrollment where  volunteer_registration_id = '"+volunteerId+"' and team_project_id ='"+id+"'";
 				String query1 = "select id  from assign_projects where team_project_id='"+id+"' and volunteer_registration_id='"+volunteerId+"'  ";
 				getAssignProjectRs = getAssignProjectSt.executeQuery(query1);
 				 if(!getAssignProjectRs.next())
@@ -5980,7 +6295,7 @@ public  String getBranchProjectStatus(HttpServletRequest request, HttpServletRes
 		try {  				
 				
 				getAssignProjectSt = connection.createStatement();
-			  	String query = "select enroll_status  from branch_project_enrollment where  volunteer_registrationg_id = '"+volunteerId+"' and branch_project_id ='"+id+"'";
+			  	String query = "select enroll_status  from branch_project_enrollment where  volunteer_registration_id = '"+volunteerId+"' and branch_project_id ='"+id+"'";
 				String query1 = "select id  from assign_projects where bproject_id='"+id+"' and volunteer_registration_id='"+volunteerId+"'  ";
 				getAssignProjectRs = getAssignProjectSt.executeQuery(query1);
 				 if(!getAssignProjectRs.next())
@@ -7144,16 +7459,16 @@ catch (SQLException e) {
 public   int getTeamProjectEnrollRequestCount(String id) throws ServletException, IOException { 
 	Statement volunteerCountSt =null;
 	ResultSet volunteerCountRs = null; 
-	int totalCount = 0; 
-	
+	int totalCount = 0;  
 	try {  				
 			volunteerCountSt = connection.createStatement();
-			String query ="SELECT count(team_project_enrollment.id)  FROM team_project_enrollment INNER JOIN team_project ON team_project.id = team_project_enrollment.team_project_id  and team_project.admin_id='"+id+"'";
+			String query ="select count(te.id) from team_project_enrollment te,  team_project t, volunteer_registration v  where te.volunteer_registration_id=v.id and t.id= te.team_project_id and te.enroll_status ='Not Approved'  and t.admin_id ='"+id+"'";
 			volunteerCountRs = volunteerCountSt.executeQuery(query);
 		
 			if(volunteerCountRs.next())
 			{
 				totalCount = Integer.parseInt(volunteerCountRs.getString(1));
+				System.out.println("count "+totalCount);
 			}
 		  
 		} 
@@ -7193,7 +7508,7 @@ public   ResultSet getTeamProjectEnrollment(HttpServletRequest request, HttpServ
 		if(adminId !=null) {
 		try {  				
 				getTeamProjectSt = connection.createStatement();
-				String query = "select * from team_project_enrollment te,  team_project t, volunteer_registration v  where te.volunteer_registrationg_id=v.id and t.id= te.team_project_id and te.enroll_status ='Not Approved'  and t.admin_id ='"+adminId+"' limit "+(pageNumber*10)+","+nextRecordCount;
+				String query = "select * from team_project_enrollment te,  team_project t, volunteer_registration v  where te.volunteer_registration_id=v.id and t.id= te.team_project_id and te.enroll_status ='Not Approved'  and t.admin_id ='"+adminId+"' order by t.tproject_title limit "+(pageNumber*10)+","+nextRecordCount;
 				getTeamProjectRs = getTeamProjectSt.executeQuery(query);
 		 } 
 	catch (SQLException e) {
@@ -7238,7 +7553,7 @@ public   ResultSet getBranchProjectEnrollment(HttpServletRequest request, HttpSe
 		if(adminId !=null) {
 		try {  				
 				getTeamProjectSt = connection.createStatement();
-				String query = "select * from branch_project_enrollment be,  branch_project b, volunteer_registration v  where v.id=be.volunteer_registrationg_id and b.id= be.branch_project_id and be.enroll_status ='Not Approved'  and b.admin_id ='"+adminId+"' limit "+(pageNumber*10)+","+nextRecordCount;
+				String query = "select * from branch_project_enrollment be,  branch_project b, volunteer_registration v  where v.id=be.volunteer_registration_id and b.id= be.branch_project_id and be.enroll_status ='Not Approved'  and b.admin_id ='"+adminId+"' order by  b.bproject_title  limit "+(pageNumber*10)+","+nextRecordCount;
 				getTeamProjectRs = getTeamProjectSt.executeQuery(query);
 		 } 
 	catch (SQLException e) {

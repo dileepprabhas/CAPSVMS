@@ -19,7 +19,7 @@ if(volunteerId==null){
 }
 String projectId=request.getParameter("projectId");
  
-  String query ="INSERT INTO branch_project_enrollment (volunteer_registrationg_id,branch_project_id) values (?,?)";
+  String query ="INSERT INTO branch_project_enrollment (volunteer_registration_id,branch_project_id) values (?,?)";
  ps = connection.prepareStatement(query);
 
 ps.setString(1,volunteerId );

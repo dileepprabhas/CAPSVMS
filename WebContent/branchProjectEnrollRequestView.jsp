@@ -191,12 +191,13 @@ if(mentorStatus == 1){
 			 
 				 <%while(teamProjectsRs.next()){ %>
 					<li>
-						<div class="collapsible-header active"><p style="padding:10px; background-color:#EDE576; font-size:14px;">
-							<span class="glyphicon glyphicon-pushpin" style="font-size:20px; color:#fff; font-size:22px; font-style: bold;"></span>&nbsp;&nbsp;
+						<div class="collapsible-header active"><p style="padding:10px; background-color:#053256; font-size:14px;">
+							<span class="glyphicon glyphicon-pushpin" style="font-size:20px;  font-size:22px; font-style: bold;"></span>&nbsp;&nbsp;
 							<%=teamProjectsRs.getString("b.bproject_title") %>
 							 
 					  		<span style="float: right; margin-right: 39px;" >
-						  		<i class="fa fa-users"  style="text-align: right; color:#fff; font-size:22px; font-style: bold;"> </i> &nbsp;&nbsp; 
+							
+							 	<i class="fa fa fa-building	" style="text-align: right; color:#fff; font-size:22px; font-style: bold;"> </i> &nbsp;&nbsp; 
 							 	<%=branch %>  
 							</span> 		
 				 	 	</div> 
@@ -205,29 +206,45 @@ if(mentorStatus == 1){
 							<div class="row"  >
 									<div class="col-lg-4" style="padding:5px;  "> 
 										<div class="info">
-					 			 			<p><strong><i class="fa fa-user" style="font-size:20px; color:#fff; "></i>  &nbsp;  &nbsp; Name</strong> &nbsp; <%=teamProjectsRs.getString("v.volunteer_name") %>      </p>
+					 			 			<p><strong><i class="fa fa-user" style="font-size:20px;  "></i>  &nbsp;  &nbsp; Name</strong> &nbsp; <%=teamProjectsRs.getString("v.volunteer_name") %>      </p>
 										</div>
 									</div>
 									<div class="col-lg-4" style="padding:5px;  "> 
 										<div class="info">
-					 			 			<p><strong><i class="fa fa-phone" style="font-size:20px; color:#fff; "></i> &nbsp;  &nbsp; Phone</strong> &nbsp; <%=teamProjectsRs.getString("v.contact_num") %>   </p>
+					 			 			<p><strong><i class="fa fa-registered" style="font-size:20px;  "></i> &nbsp;  &nbsp; Register No.</strong> &nbsp; <%=teamProjectsRs.getString("v.username") %>   </p>
+										</div>
+									</div>
+									
+									<div class="col-lg-4" style="padding:5px;  "> 
+										<div class="info">
+					 			 			<p><strong><i class="fa fa-envelope" style="font-size:20px;  "></i> &nbsp;  &nbsp; Email</strong> &nbsp; <%=teamProjectsRs.getString("v.email_id") %>   </p>
 										</div>
 									</div>
 									<div class="col-lg-4" style="padding:5px;  "> 
 										<div class="info">
-					 			 			<p><strong><i class="fa fa-envelope" style="font-size:20px; color:#fff; "></i> &nbsp;  &nbsp; Email</strong> &nbsp; <%=teamProjectsRs.getString("v.email_id") %>   </p>
+					 			 			<p><strong><i class="fa fa-users" style="font-size:20px;  "></i> &nbsp;  &nbsp; Wing</strong> &nbsp; <%=teamProjectsRs.getString("v.team") %>   </p>
 										</div>
 									</div>
+									<div class="col-lg-4" style="padding:5px;  "> 
+										<div class="info">
+					 			 			<p><strong><span style="font-size:20px;" class="glyphicon glyphicon-education"></span> &nbsp;  &nbsp; Course</strong> &nbsp; <%=teamProjectsRs.getString("v.course") %>   </p>
+										</div>
+									</div>
+									<div class="col-lg-4" style="padding:5px;  "> 
+										<div class="info">
+					 			 			<p><strong><i class="fa fa-phone" style="font-size:20px;  "></i> &nbsp;  &nbsp; Phone</strong> &nbsp; <%=teamProjectsRs.getString("v.contact_num") %>   </p>
+										</div>
+									</div>	
 								</div>
 								<div class="row"  >
-									<div class="col-lg-6" style="padding:5px;  "> 
+									<div class="col-lg-8" style="padding:5px;  "> 
 										<div class="info">
-					 			 			<p><strong><i class="fa fa-calendar-o" style="font-size:20px; color:#fff; "></i>  &nbsp;  &nbsp;  Start Date</strong> &nbsp; <%=teamProjectsRs.getString("b.bpro_start_date") %>      </p>
+					 			 			<p><strong><i class="fa fa-calendar-o" style="font-size:20px;  "></i>  &nbsp;  &nbsp;  Start Date</strong> &nbsp; <%=teamProjectsRs.getString("b.bpro_start_date") %>      </p>
 										</div>
 									</div>
-									<div class="col-lg-6" style="padding:5px;  "> 
+									<div class="col-lg-4" style="padding:5px;  "> 
 										<div class="info">
-					 			 			<p><strong><i class="fa fa-calendar-o" style="font-size:20px;color:#fff; "></i> &nbsp;  &nbsp; End Date</strong> &nbsp; <%=teamProjectsRs.getString("b.bpro_end_date") %>   </p>
+					 			 			<p><strong><i class="fa fa-calendar-o" style="font-size:20px; "></i> &nbsp;  &nbsp; End Date</strong> &nbsp; <%=teamProjectsRs.getString("b.bpro_end_date") %>   </p>
 										</div>
 									</div>
 								</div>
@@ -242,7 +259,7 @@ if(mentorStatus == 1){
 								  		<input type="hidden" name="enrollId" value="<%=teamProjectsRs.getString("be.id")%>">
 								  		
 									  <button type="submit" class="btn btn-warning" style="  display: inline-block; ">
-  <i class="fa fa-check" style="color:#fff; font-size:20px;"></i>Approve
+  <i class="fa fa-check" style=" color:#fff; font-size:20px;"></i>Approve
 </button>&nbsp;&nbsp;&nbsp;&nbsp; 
 								 	</form>
 								 	

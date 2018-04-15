@@ -217,7 +217,7 @@ if(volunteerStatus == 1){
 								<p style="font-size:16px;"><%=vmsExperinceRs.getString("description") %>  </p> 
 								<br>
 								<div style="text-align:center;">
-									<a href="#" data-toggle="modal" data-target="#myModal<%=j%>" style="margin-left:auto; margin-right:auto;"><i class="	fa fa-comments-o" style="color:#EDE576; font-size:22px;  "></i> Comments</a>
+									<a href="#" data-toggle="modal" data-target="#myModal<%=j%>" style="margin-left:auto; margin-right:auto;"><i class="	fa fa-comments-o" style="color:#053256; font-size:22px;  "></i> Comments</a>
 								</div>
 							</div> 
 					</div>

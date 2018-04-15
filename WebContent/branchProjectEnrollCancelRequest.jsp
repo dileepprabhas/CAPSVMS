@@ -25,7 +25,7 @@ if(volunteerId==null)
 }
 String projectId=request.getParameter("projectId");
  String q1="";
-String query ="select id from branch_project_enrollment where volunteer_registrationg_id = '"+volunteerId+"' and branch_project_id='"+projectId+"'";
+String query ="select id from branch_project_enrollment where volunteer_registration_id = '"+volunteerId+"' and branch_project_id='"+projectId+"'";
 st = connection.createStatement();
 rs = st.executeQuery(query);
 if(rs.next()){

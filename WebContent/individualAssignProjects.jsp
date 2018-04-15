@@ -178,14 +178,14 @@ if(mentorStatus == 1){
          
         <div  class="col-md-10 col-lg-9 col-sm-9 col-xs-12" style="padding:3px 0px;">
  			<form action="Control?action=assignIndividualProject" method="post" >
- 			<input type="hidden" name="vId" value="<%=vId %>" >
-			<br><br><br><input type="text" name="projectTitle" style="opacity:1;" required placeholder="Enter Project Title"  class="form-control">
-			<br><br><br><label>Start Date</label><input  name="projectStartDate" type="date" style="opacity:1;" required placeholder="Choose Project Start Date"  class="form-control">
-			<br><br><br><label>End Date</label><input  name="projectEndDate" type="date" style="opacity:1;" required placeholder="Choose Project End Date"  class="form-control">
-			<br><br><br><textarea  required name="projectDesc" placeholder="Enter Project Description" class="form-control"></textarea>
-			<br><br><br><input type="submit" style="opacity:1;"  value="Assign">
+	 			<input type="hidden" name="vId" value="<%=vId %>" >
+				<br><br><br><input type="text" name="projectTitle" style="opacity:1;" required placeholder="Enter Project Title"  class="form-control">
+				<br><br><br><label>Start Date</label><input  name="projectStartDate" type="date" style="opacity:1;" required placeholder="Choose Project Start Date"  class="form-control">
+				<br><br><br><label>End Date</label><input  name="projectEndDate" type="date" style="opacity:1;" required placeholder="Choose Project End Date"  class="form-control">
+				<br><br><br><textarea  required name="projectDesc" placeholder="Enter Project Description" class="form-control"></textarea>
+				<br><br><br><input type="submit" style="opacity:1;"  value="Assign">
  			</form>
-          
+           
     	</div>
  	</div>
 </div>

@@ -252,6 +252,12 @@ if(mentorStatus == 1){
                             <a class="nav-link" href="viewMonthlyReport.jsp?pN=1">View Monthly Report</a>
                         </li>  
                         <li   class="nav-item">
+                            <a class="nav-link" href="coreMeeting.jsp">Core Meeting</a>
+                        </li>
+                        <li   class="nav-item">
+                            <a class="nav-link" href="viewCoreMeeting.jsp">View Core Meeting </a>
+                        </li>
+                        <li   class="nav-item">
                             <a class="nav-link" href="mentorVmsExperience.jsp">VMS Feedback</a>
                         </li>
                         <li   class="nav-item">

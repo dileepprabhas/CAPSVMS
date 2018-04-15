@@ -236,7 +236,7 @@ footer { padding: 15px; }
   padding: 0;  
   overflow-x: hidden;
 }
-.templatemo-content-container {	padding: 40px 50px; }
+/* .templatemo-content-container {	padding: 40px 50px; } */
 .templatemo-flex-row {
 	display: -webkit-flex;
 	display: -ms-flexbox;

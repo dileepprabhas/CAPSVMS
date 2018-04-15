@@ -92,6 +92,7 @@ if(adminId !=null){
           <ul id="exCollapsingNavbar3">
           	<li><a href="index.jsp" class="active"><i   class="fa fa-home fa-fw"></i>Home</a></li>
             <li><a href="manageUsers.jsp?pageNumber=1" ><i    class="fa fa-users fa-fw"></i>Manage Users</a></li>
+          	<li><a href="usersDesignation.jsp?pageNumber=1" ><i    class="fa fa-users fa-fw"></i>Assign Privilege</a></li>
           
           </ul>  
         </nav>
@@ -251,7 +252,7 @@ address: <span id="c"></span>
              	 	</form>
                </div>
             <div class="templatemo-content-widget white-bg col-2 text-center">
-              	<i class="fa fa-times"></i>
+              	<i class="fa fa-times"></i><br>
               	<form method="post" action="${pageContext.request.contextPath}/Control?action=addGrievance" >
 	             	<input type="text" Placeholder="Grievance Type"  required class="form-control" name="grievance">
 	             	 <br>
@@ -300,6 +301,23 @@ address: <span id="c"></span>
             <div class="templatemo-content-widget white-bg col-2">
               <i class="fa fa-times"></i>
             <br>
+            <form method="post" action="${pageContext.request.contextPath}/Control?action=addDesignations" >
+             	<input type="text" Placeholder="Designation"  required class="form-control" name="designation">
+             	 <br>
+             	<input type="submit" class="form-control" value="Add Designation" >
+             	</form><hr>  
+              		<form action="#" method="post" >
+              		 	  <select required class="form-control"   name="skillId"> 
+              				<option value="">View Designations</option> 
+              				<% academicSkillRs = ct.getDesignations(); %>
+              				<% while(academicSkillRs.next() ){ %>
+              					<option value="<%=academicSkillRs.getString("id") %>"> <%=academicSkillRs.getString("designation_name") %></option>
+              				<%} %> 
+              			</select>  <br>
+              	 
+             		<!-- <input type="submit"   class="form-control" value="View Academic Skill" >
+            -->
+              		</form><hr> 
               	<form method="post" action="${pageContext.request.contextPath}/Control?action=addAcademicSkills" >
              	<input type="text" Placeholder="Academic Skill"  required class="form-control" name="academicSkill">
              	 <br>
@@ -933,6 +951,26 @@ address: <span id="c"></span>
     var x = document.getElementById("snackbar")
     x.className = "show";
     x.innerHTML="Select Teams or Mentor Profile To Send Notifications";
+    setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+ 
+</script>
+<%} else if(action.equals("DesignationExists")){ 
+ %>
+	 <script>
+ 
+    var x = document.getElementById("snackbar")
+    x.className = "show";
+    x.innerHTML="Designation Already Exist";
+    setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+ 
+</script>
+<%} else if(action.equals("DesignationAdded")){ 
+ %>
+	 <script>
+ 
+    var x = document.getElementById("snackbar")
+    x.className = "show";
+    x.innerHTML="New Designation Has been Added Successfully";
     setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
  
 </script>

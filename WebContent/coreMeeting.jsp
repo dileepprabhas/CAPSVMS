@@ -44,16 +44,21 @@ h1 {
 	margin-bottom: 14px;
 	
  }
+ button,button:hover,button:active,button:visited
+ {
+ color:white;
+ }
  
- 
-</style>
+   .modal-footer {
+    padding: 15px;
+    text-align: right;
+    border-top:none;
+}
 
-
-    <style type="text/css">
-        
-        
      
     </style>
+        
+
 </head>
 <body>
 
@@ -62,8 +67,6 @@ h1 {
 <%@ page import ="javax.sql.*" %>
 <%@ page import="com.daniel.util.control.*"  %> 
    
-  
-  
 <div class="outercontainer" style="margin-top:0px; height:100px; background-color: #f8f8f8;">
 	<div class="header-bottom-w3ls" style="padding:22px;">  
 		<div class="row">
@@ -85,12 +88,10 @@ h1 {
 <% try{ %>
   
 <%!  
-	ResultSet branchProjectsRs=null,branchRs=null;
+	ResultSet ngoDetail=null;
 	int mentorStatus=0; 
-	String adminId =null;
-	ResultSet teamsRs=null; 
-	int volunteerCount =0, pageCount = 0;
-	int pageNumber=0, nextRecordCount=10;	
+	String adminId =null,PhoneNumber=null;
+	ResultSet usersRs=null; 
 	Control ct = new Control();
 %>
 <% 
@@ -106,17 +107,12 @@ h1 {
 } catch (Exception e){ 	 	
 }
 if(mentorStatus == 1){
-	pageNumber = Integer.parseInt(request.getParameter("pN")); 
-	volunteerCount = ct.volunteerBranchProjectCount(adminId);
-	pageCount= volunteerCount/10 +1;
-	branchProjectsRs = ct.getBranchProject(request, response,pageNumber-1, nextRecordCount);  
-	/* ct.teamVolunteerDetails(pageNumber-1, nextRecordCount,adminId,branchId); */
- 	String branch_id = ct.getMentorBranch(adminId);
-	String branch = ct.getBranchName(branch_id);
- %>
+	 
+	 
+	
+%>  	
  
- 	
- <div class="outercontainer" style="padding-top:0px;  padding-right:10px; margin-left:10px; margin-top:10px; margin-right:15px;">
+<div class="outercontainer" style="padding-top:0px;  padding-right:10px; margin-left:10px; margin-top:10px; margin-right:15px;">
     <div class="row">
         <div class="col-md-2 col-lg-3 col-sm-4 col-xs-12" >
 
@@ -141,19 +137,19 @@ if(mentorStatus == 1){
                     <ul class="nav flex-column" id="exCollapsingNavbar3">
 	                     
                        	<li   class="nav-item">
-                         	<a class="nav-link " href="mentorIndex.jsp">Home</a>
+                         	<a class="nav-link" href="mentorIndex.jsp">Home</a>
                         </li>
                         <li   class="nav-item">
-                         	<a class="nav-link 	" href="mentorVolunteerWorkDiary.jsp?pN=1">Work Diary</a>
+                         	<a class="nav-link" href="mentorVolunteerWorkDiary.jsp?pN=1">Work Diary</a>
                         </li>
                         <li   class="nav-item">
                          	<a class="nav-link" href="mentorVolunteerMeeting.jsp?pN=1">Work Meeting</a>
                         </li>
                         <li   class="nav-item">
-                         	<a class="nav-link " href="mentorVolunteerTraining.jsp?pN=1">Work Training</a>
+                         	<a class="nav-link" href="mentorVolunteerTraining.jsp?pN=1">Work Training</a>
                         </li>                       	 
                         <li  class="nav-item">
-                            <a class="nav-link " href="individualProject.jsp?pN=1">Individual Projects</a>
+                            <a class="nav-link" href="individualProject.jsp?pN=1">Individual Projects</a>
                         </li> 
                         <li  class="nav-item">
                             <a class="nav-link" href="teamProject.jsp">Team Projects</a>
@@ -162,13 +158,13 @@ if(mentorStatus == 1){
                             <a class="nav-link" href="teamProjectView.jsp?pN=1">View Team Projects</a>
                         </li>
                         <li  class="nav-item">
-                            <a class="nav-link " href="teamProjectEnrollRequestView.jsp?pN=1"> Team Project Enroll Request</a>
+                            <a class="nav-link" href="teamProjectEnrollRequestView.jsp?pN=1"> Team Project Enroll Request</a>
                         </li>
                         <li   class="nav-item">
                             <a class="nav-link" href="branchProject.jsp">Branch Projects</a>
                         </li>
                         <li   class="nav-item">
-                            <a class="nav-link active" href="branchProjectView.jsp?pN=1">View Branch Projects</a>
+                            <a class="nav-link" href="branchProjectView.jsp?pN=1">View Branch Projects</a>
                         </li>
                         <li  class="nav-item">
                             <a class="nav-link" href="branchProjectEnrollRequestView.jsp?pN=1"> Branch Project Enroll Request</a>
@@ -176,6 +172,12 @@ if(mentorStatus == 1){
                         <li   class="nav-item">
                             <a class="nav-link" href="viewMonthlyReport.jsp?pN=1">View Monthly Report</a>
                         </li>  
+                        <li   class="nav-item">
+                            <a class="nav-link active" href="coreMeeting.jsp">Core Meeting</a>
+                        </li>
+                        <li   class="nav-item">
+                            <a class="nav-link" href="viewCoreMeeting.jsp">View Core Meeting </a>
+                        </li>
                         <li   class="nav-item">
                             <a class="nav-link" href="mentorVmsExperience.jsp">VMS Feedback</a>
                         </li>
@@ -188,107 +190,107 @@ if(mentorStatus == 1){
         </div>
          
         <div  class="col-md-10 col-lg-9 col-sm-9 col-xs-12" style="padding:3px 0px;">
-	 	  
-				<ul class="collapsible" data-collapsible="accordion" style="list-style:none; margin-left:auto; margin-right:auto;">
-			 
-				 <%while(branchProjectsRs.next()){ %>
-					<li>
-						<div class="collapsible-header active"><p style="padding:10px; background-color:#053256; font-size:14px;">
-							<span class="glyphicon glyphicon-pushpin" style="font-size:20px; color:#fff; font-size:22px; font-style: bold;"></span>&nbsp;&nbsp;
-							<%=branchProjectsRs.getString("bproject_title") %>
-							 
-					  		 <span style="float: right; margin-right: 39px;" >
-						  		<i class="fa fa fa-building	"  style="text-align: right; color:#fff; font-size:22px; font-style: bold;"> </i> &nbsp;&nbsp; 
-							 	<%=branch %> 
-							 	
-							</span>  	
-				 	 	</div> 
-						<div class="collapsible-body" style="background-color: #fff;">
-							<div class="col-lg-12" style="margin-left:90px;">
-								<div class="row"  >
-									<div class="col-lg-6" style="padding:5px;  "> 
-										<div class="info">
-					 			 			<p><strong><i class="fa fa-calendar-o" style="font-size:20px;  "></i>  &nbsp;  &nbsp;  Start Date</strong> &nbsp; <%=branchProjectsRs.getString("bpro_start_date") %>      </p>
-										</div>
-									</div>
-									<div class="col-lg-6" style="padding:5px;  "> 
-										<div class="info">
-					 			 			<p><strong><i class="fa fa-calendar-o" style="font-size:20px;  "></i> &nbsp;  &nbsp; End Date</strong> &nbsp; <%=branchProjectsRs.getString("bpro_end_date") %>   </p>
-										</div>
-									</div>
-								</div>
-								<br>
-								<p style="   font-size:16px;"><%=branchProjectsRs.getString("bproject_desc") %>  </p> 
-								<br><a href="assignBranchProjects.jsp?projectId=<%=branchProjectsRs.getString("id")%>&action=assignProject" class="btn btn-primary"><i class="fa fa-tags" style="color:#fff; font-size:22px;  "></i> Assign Students </a>
-							<br><br>
-							</div> 
-					</div>
-				</li>
-				<%} %> 
-				 <div class="col-lg-12 text-center" style="margin-left:auto; margin-right:auto;">
-					<ul class="pagination " >
-						<% for( int k=1; k<=pageCount; k++){ %>
-					    	<li><a href="branchProjectView.jsp?pN=<%=k%>"><%=k%></a></li>
-					    <% } %> 
-				 	</ul>
-		 		</div>  
-	  		</ul> 
-    	</div>
+        <br> 
+     		<form name="f1" action="sub_admin_minutes_of_meeting1.jsp" method="post" onsubmit="return validate() ">
+				<div class="col-lg-6">
+			 		<div class="form-group">
+			 	 		<label>Start Date</label>
+					 	<input required type="date" name="fromDate" placeholder="select the date of meeting" style="opacity:1;" class="form-control">
+				 	</div> 
+					<div class="form-group">
+				 	 	<label>Duration</label>
+				 	 	<select name="duration" required id="dur" class="form-control" >
+					 		  <option value="">Meeting Duration</option>
+					 		  <option>30 Minutes</option>
+							  <option>60 Minutes</option>
+					 	</select>
+				  	</div>
+					<div class="form-group">
+				 	 	<label>Meeting Called By</label>
+				 	 	<input name="meet_called_by" required type="text"  placeholder="Meeting called by" class="form-control">
+				  	</div> 
+					<div class="form-group">
+				 	 	<label>Facilitator</label>
+				 	 	<input name="faci" type="text"  required  placeholder="Facilitator" class="form-control">
+				  	</div>	<br>
+				  	<div class="form-group">
+				 	 	<label>Decisions Taken</label>
+				 	 	<textarea  required  name="dis_con" placeholder="Decisions Taken in Meeting" class="form-control" ></textarea>
+				  	</div>  
+		 		</div>
+ 				<div class="col-lg-6">  
+			     	<div class="form-group">
+				 	 	<label>Venue</label>
+				 	 	<input name="vanue" required class="form-control" placeholder="Meeting Venue" type="text" >
+			  		</div>
+				  	<div class="form-group">
+					 	<label>Meeting Type</label>
+					 	<select name="meet_type" required class="form-control"  >
+							<option value="">Meeting Type</option>
+							<option>Weekly Meeting</option>
+							<option>Monthly Meeting</option>
+						</select>
+			 		</div>  
+				 	<div class="form-group">
+				 	 	<label>Note Taker</label>
+				 	 	<input name="note" type="text" required  placeholder="Facilitator" class="form-control">
+				  	</div> 
+				  
+				 	<div class="form-group">
+				 	 	<label>Topics / Agenda</label>
+				 	 	<textarea name="topic"  required  name="comment" class="form-control" placeholder="Topic / Agenda of Meeting" ></textarea>
+				  	</div> 
+			  		<div class="form-group">
+				 	 	<label>Action to be taken (Person & Date)</label>
+				 	 	<textarea  required  name="act" placeholder="Decisions Taken in Meeting" class="form-control" ></textarea>
+				  	</div>
+    			</div>
+		     	<div class="text-center">    
+			         <button type="button" class="btn btn-lg-6" class="form-control" style="width:80%;" data-toggle="modal" data-target="#myModal">Next</button>
+		    	</div>
+		    	<%usersRs = ct.getBranchProfiles(request,response); %>
+		    	<!-- Modal -->
+				<div id="myModal" class="modal fade" role="dialog">
+				  <div class="modal-dialog modal-lg modal-sm modal-md modal-xs">
+				
+				    <!-- Modal content-->
+				    <div class="modal-content">
+				      <div class="modal-header">
+				        <button type="button" class="close" data-dismiss="modal">&times;</button>
+				        <h4 class="modal-title">Attendees</h4>
+				      </div>
+				      <div class="modal-body">
+				      <%while(usersRs.next()){ %>
+				      	<div class="col-lg-4 col-md-4 col-xs-6 col-sm-6">
+				        	<label class="container"><%=usersRs.getString("name") %>
+						  	<input type="checkbox" value="<%=usersRs.getString("name") %>">
+						  	<span class="checkmark"></span>
+							</label>
+						</div>
+						<%} %>
+						 
+				      </div>
+				      <div class="modal-footer">
+				      <hr>
+				      	<button type="submit" class="btn " value="submit" >Submit</button>
+				      	<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				      </div>
+				    </div>
+				
+				  </div>
+				</div>
+			</form>
+         </div>
  	</div>
 </div>
   
-<%} %>  
+  
+  
+<%} %>
 <br><br><br>  
 <div class="footer" style="background-color:#2A3F54;   height:50px;">
 	 <p class="copy-right">© 2018 Sarvahitkari . All rights reserved | Design by <a href="#">Kapil Thakur & Rebecca John</a></p>
 </div> 
-	  
-<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/js/materialize.min.js"></script>
 
-<script type="text/javascript">
-
-(function($) {
-	
-	$(window).scroll(function() {
-		
-		$(window).scroll(function() {
-			space = $(window).innerHeight() - $('.fab').offsetTop + $('.fab').offsetHeight;
-			if(space < 200){
-				$('.fab').css('margin-bottom', '150px');
-			}
-		})
-		
-	});
-	
-})(jQuery);
-
-</script>
-
-<div id="snackbar"></div>
- <% 
- String action =request.getParameter("action");
- if(action==null){
- 
- }else if(action!=null)
- {
-	 
-  
-  %>
-  <%if(action.equals("BranchProjectAssigned")){ 
- %>
-	 <script>
- 
-    var x = document.getElementById("snackbar")
-    x.className = "show";
-    x.innerHTML="Branch Project Is Assigned";
-    setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
- 
-</script>
-<%}%>
-
-
-<%}%>
- 
 </body>
 </html>

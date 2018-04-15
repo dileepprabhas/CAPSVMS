@@ -205,6 +205,13 @@ if(mentorStatus == 1){
 					</a>
 				</ul>
              <% }  %> 
+             <div class="col-lg-12 text-center" style="margin-left:auto; margin-right:auto;">
+				<ul class="pagination " >
+					<% for( int k=1; k<=pageCount; k++){ %>
+				    	<li><a href="mentorVolunteerTraining.jsp?pN=<%=k%>"><%=k%></a></li>
+				    <% } %> 
+			 	</ul>
+	 		</div>
     	</div>
  	</div>
 </div>

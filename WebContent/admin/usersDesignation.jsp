@@ -15,7 +15,6 @@
     <link href="css/font-awesome.min.css" rel="stylesheet">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/templatemo-style.css" rel="stylesheet">
-    
 <link rel="shortcut icon" href="../images/logo2_.ico" />
     
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -23,8 +22,7 @@
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
+    <![endif]--> 
   </head>
   <body>  
   <%@ page import="java.sql.*" %>
@@ -82,9 +80,10 @@ if(adminId !=null){
         <nav class="templatemo-left-nav">          
           <ul id="exCollapsingNavbar3">
             <li><a href="index.jsp"><i class="fa fa-home fa-fw"></i>Home</a></li>
-            <li><a href="manageUsers.jsp?pageNumber=1" class="active"><i  class="fa fa-users fa-fw"></i>Manage Users</a></li>
-            <li><a href="usersDesignation.jsp?pageNumber=1" ><i    class="fa fa-users fa-fw"></i>Assign Privilege</a></li>
+            <li><a href="manageUsers.jsp?pageNumber=1" ><i  class="fa fa-users fa-fw"></i>Manage Users</a></li>
+          	<li><a href="usersDesignation.jsp?pageNumber=1" class="active" ><i    class="fa fa-users fa-fw"></i>Assign Privilege</a></li>
           
+           
              </ul>  
         </nav>
       </div>
@@ -103,96 +102,18 @@ if(adminId !=null){
               
           <div class="templatemo-content-widget no-padding"> 
           
-            <div class="panel panel-default table-responsive">
-            <div class="panel-heading templatemo-position-relative"><h2 class="text-uppercase">Applications</h2></div>
-         
-            <form id="regForm" action="${pageContext.request.contextPath}/Control?action=volunteerApproval" name="f1"  onSubmit="return validateChecks1()" method="post" style="margin-top:0px; padding-top:0px;">  
-			  <table class="table table-striped table-bordered templatemo-user-table">
-                <thead>
-                  <tr>
-                    <td><a href="" class="white-text templatemo-sort-by"># <span class="caret"></span></a></td>
-                    <td><a href="" class="white-text templatemo-sort-by">First Name <span class="caret"></span></a></td>
-                    <td><a href="" class="white-text templatemo-sort-by">Email<span class="caret"></span></a></td>
-                    <td><a href="" class="white-text templatemo-sort-by">  Status <span class="caret"></span></a></td>
-                    <td><a href="" class="white-text templatemo-sort-by">Profile <span class="caret"></span></a></td>
-                     
-                    
-                  </tr>
-                </thead>
-                <tbody>
-                <% try{ %>
-			  
-				
-				<%  
-				 	pageNumber = Integer.parseInt(request.getParameter("pageNumber"));
-					volunteerCount = ct.volunteerApplicationCount();
-					pageCount= volunteerCount/10 +1;		  
-					volunteerDetailsRs = ct.applicationDetails(pageNumber-1, nextRecordCount);
-			} catch (Exception e)	{
-				}
-			%> <%!  int i=1; %>
-			 <%  while(volunteerDetailsRs.next()){  %>
-			
-							<tr>
-								<td>
-								  	<input type="checkbox" name="volunteerId" id="u<%=i%>" value="<%=volunteerDetailsRs.getString("id") %>">
-                      				<label for="u<%=i%>" class="font-weight-400"><span></span> </label> 
-								 				
-								</td>
-								<td> 
-									<input type="text" readonly class="form-control" name="name" value="<%=volunteerDetailsRs.getString("volunteer_name") %>" >					
-								</td>
-								<td>
-									<input type="text" readonly name="email"  class="form-control"  value="<%=volunteerDetailsRs.getString("email_id") %>" >
-								</td>  
-								<td>
-									<input type="text" readonly name="email_status"  class="form-control"   value="<%=volunteerDetailsRs.getString("approve_status") %>" >
-								</td> 
-								 <td>
-									<a href="applicationProfile.jsp?aId=<%=volunteerDetailsRs.getString("id")%>" target="_blank" >View </a>
-								</td> 
-								 
-							</tr>
-							<input type="hidden" name="pageNumber"  value="<%=pageNumber %>">
-							<% ++i; }  %> 
-                </tbody>
-              </table>  
-              <div style="margin:10px;">
-              
-						<div class="col-lg-5">
-							<select required  class="form-control" name="status">
-							<option value="">Select the Status</option>
-								<option>Approved</option>
-								<option>Under Process</option>
-								<option>Rejected </option> 
-								<option>Pending</option> 
-								<option>Archived</option>
-							</select>
-						</div>  
-						<div  class="col-lg-5">
-							<input type="submit"  class="form-control"  value="Update Application Status" >
-						</div> 
-					</div>
-					</form> 
-			 <div class="col-lg-12 text-center" style="margin-left:auto; margin-right:auto;">
-				<ul class="pagination " >
-					<% for( int k=1; k<=pageCount; k++){ %>
-				    	<li><a href="manageUsers.jsp?pageNumber=<%=k%>"><%=k%></a></li>
-				    <% } %> 
-			 	</ul>
-		 	</div>  
-            </div>
+            
             <div class="panel panel-default table-responsive">
              <div class="panel-heading templatemo-position-relative"><h2 class="text-uppercase">Volunteers</h2></div>
               
-            <form id="regForm" action="${pageContext.request.contextPath}/Control?action=assignTeam" name="f2" onSubmit="return validateChecks2()" method="post" style="margin-top:0px; padding-top:0px;">  
+            <form id="regForm" action="${pageContext.request.contextPath}/Control?action=assignDesignation" name="f2" onSubmit="return validateChecks2()" method="post" style="margin-top:0px; padding-top:0px;">  
 			  <table class="table table-striped table-bordered templatemo-user-table">
                 <thead>
                   <tr>
                     <td><a href="" class="white-text templatemo-sort-by"># <span class="caret"></span></a></td>
                     <td><a href="" class="white-text templatemo-sort-by">First Name <span class="caret"></span></a></td>
                     <td><a href="" class="white-text templatemo-sort-by">Email<span class="caret"></span></a></td>
-                    <td><a href="" class="white-text templatemo-sort-by">  Status <span class="caret"></span></a></td>
+                    <td><a href="" class="white-text templatemo-sort-by">Designation <span class="caret"></span></a></td>
                   
                     <td><a href="" class="white-text templatemo-sort-by">Team <span class="caret"></span></a></td>
                     <td><a href="" class="white-text templatemo-sort-by">Branch <span class="caret"></span></a></td>
@@ -210,7 +131,7 @@ if(adminId !=null){
 			} catch (Exception e)	{
 				}
 			%>
-			 <%!  int j=i; %>
+			 <%!  int j=0; %>
 			 <%  while(volunteerDetailsRs.next()){  %>
 			
 							<tr>
@@ -226,7 +147,7 @@ if(adminId !=null){
 									<input type="text" readonly name="email"  class="form-control"  value="<%=volunteerDetailsRs.getString("email_id") %>" >
 								</td>  
 								<td>
-									<input type="text" readonly name="email_status"  class="form-control"   value="<%=volunteerDetailsRs.getString("approve_status") %>" >
+									<input type="text" readonly name="email_status"  class="form-control"   value="<%=volunteerDetailsRs.getString("volunteer_type") %>" >
 								</td> 
 								 
 								 <%if(volunteerDetailsRs.getString("team") == null) {  %>
@@ -258,25 +179,16 @@ if(adminId !=null){
               </table>  
               <div style="margin:10px;">
 						<div class="col-lg-4">
-							<select required   class="form-control" name="team10">
-							<option value="">Select the Team</option>
-								<%	teamRs = ct.getTeams();
+							<select required   class="form-control" name="designation">
+							<option value="">Select the Designations</option>
+								<%	teamRs = ct.getDesignations();
               					%>
               				<% while(teamRs.next() ){ %>
-              					<option> <%=teamRs.getString("team_name") %></option>
+              					<option value="<%=teamRs.getString("id") %>"><%=teamRs.getString("designation_name") %></option>
               				<%} %> 
 							</select>
 						</div>  
-						<div class="col-lg-4">
-							<select required  class="form-control" name="branch">
-							<option value="">Select the Branch</option>
-								<%	branchRs = ct.getBranch();
-              					%>
-              				<% while(branchRs.next() ){ %>
-              					<option value="<%=branchRs.getString("id") %>" > <%=branchRs.getString("name") %></option>
-              				<%} %> 
-							</select>
-						</div>
+						 
 						<div  class="col-lg-4">
 							<input type="submit"  class="form-control"  value="Assign Team" >
 						</div> 
@@ -285,7 +197,7 @@ if(adminId !=null){
 			 <div class="col-lg-12 text-center" style="margin-left:auto; margin-right:auto;">
 				<ul class="pagination " >
 					<% for( int k=1; k<=pageCount; k++){ %>
-				    	<li><a href="manageUsers.jsp?pageNumber=<%=k%>"><%=k%></a></li>
+				    	<li><a href="usersDesignation.jsp?pageNumber=<%=k%>"><%=k%></a></li>
 				    <% } %> 
 			 	</ul>
 		 	</div>  
@@ -318,7 +230,7 @@ if(adminId !=null){
 			} catch (Exception e)	{
 				}
 			%>
-			 <%!  int k=i; %>
+			 <%!  int k=j; %>
 			 <%  while(volunteerDetailsRs.next()){  %>
 			
 							<tr>
@@ -393,7 +305,7 @@ if(adminId !=null){
 			 <div class="col-lg-12 text-center" style="margin-left:auto; margin-right:auto;">
 				<ul class="pagination " >
 					<% for( int k=1; k<=pageCount; k++){ %>
-				    	<li><a href="manageUsers.jsp?pageNumber=<%=k%>"><%=k%></a></li>
+				    	<li><a href="usersDesignation.jsp?pageNumber=<%=k%>"><%=k%></a></li>
 				    <% } %> 
 			 	</ul>
 		 	</div>  
@@ -561,13 +473,13 @@ if(adminId !=null){
     setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
  
 </script>
-<%}else if(action.equals("TeamBranchAssigned")){ 
+<%}else if(action.equals("DesignationAssigned")){ 
  %>
 	 <script>
  
     var x = document.getElementById("snackbar")
     x.className = "show";
-    x.innerHTML="Volunteer Is Assigned In Team And Branch";
+    x.innerHTML="Selected Designation is Assigned";
     setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
  
 </script>
