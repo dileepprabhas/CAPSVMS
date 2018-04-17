@@ -228,11 +228,7 @@ if(volunteerStatus == 1){
 								</div>
 								<br>
 								<p style="  font-size:16px;"><%=teamProjectsRs.getString("tproject_desc") %>  </p> 
-							
-							
 							<%if(status ==null){
-							
-							System.out.println("Status "+status);
 							%>
 								<br><a  class="btn btn-primary" href="temProjectEnrollRequest.jsp?projectId=<%=teamProjectsRs.getString("id")%>"><i class="fa fa-plus" style="color:#fff; font-size:22px;  "></i> Enroll  Request </a>
 							<%}

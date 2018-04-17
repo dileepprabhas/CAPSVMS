@@ -3,37 +3,32 @@
 <%@ page import ="javax.sql.*" %>
 <%@page import="com.daniel.util.DbUtil"%>
 <%@ page import="com.daniel.util.DbUtil.*" %>
+
+<%@ page import ="java.text.SimpleDateFormat "  %>
+<%@page import ="java.util.Date"  %>
 <%
 Connection connection=DbUtil.getConnection();
 
 %>
   <%! 
-   PreparedStatement st =null;
-     
+     java.sql.Statement st = null; 
  %>
  <%try{%> 
 <%
 
-String status=request.getParameter("status");
+String comment =request.getParameter("comment");
 
-String id=request.getParameter("id");
- 
+String id =request.getParameter("id");
+String reg_no=(String)session.getAttribute("volunteerId");
+SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");  
+Date date = new Date();  
+   st= connection.createStatement(); 
   
 // int n =st.executeUpdate("insert into question1 select subjectid from subject where subjectName='"+subjectid+" && insert into question1 values ('"+questionid+"','"+content+"')");
-int n=0;
-st = connection.prepareStatement("update  sub_admin_minutes_meeting set  status = ?  where id='"+id+"'");
-st.setString(1, status);
-n=st.executeUpdate(); 
+int n =st.executeUpdate("insert into student_head_meeting_comment (comment,volunteer_registration_id,student_head_meeting_id,time) values ('"+comment+"','"+reg_no+"','"+id+"',  '"+formatter.format(date)+"' )"); 
 
-
- 
-  if(n!=0  )
-{
-	response.sendRedirect("viewCoreMeeting.jsp"); 
-}
- 
+response.sendRedirect("viewTeamMeeting.jsp");
 %>
-
  <%}
         catch(SQLException se){
             se.printStackTrace();

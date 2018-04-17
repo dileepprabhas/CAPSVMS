@@ -502,7 +502,10 @@ address: <span id="c"></span>
 	                  			<label class="control-label templatemo-block">Select User Type</label>                 
 			                  	<select required name="userType" class="form-control">
 			                  		<option value="">Select User Type</option>
-				                    <option value="Mentor">Mentor</option>                     
+				                    <option value="Mentor">Mentor</option>  
+				                    <option value="Branch Co-ordinator">Branch Co-ordinator</option>
+				                    <option value="Branch Meeting Reviewer">Branch Meeting Reviewer</option>
+				                    <option value="Co-ordinator">Co-ordinator</option>                    
 			                  	</select>
 			                </div>
 		              		<div class=" col-lg-4 col-md-4 form-group "><br>

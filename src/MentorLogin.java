@@ -62,7 +62,7 @@ public class MentorLogin extends HttpServlet {
 					session.setAttribute("adminId", adminId); 
 					session.setAttribute("adminType", adminType); 
 					session.setMaxInactiveInterval(1800); 
-					if(adminType.equals("Mentor")) {
+					if(adminType.equals("Mentor") || adminType.equals("Branch Co-ordinator")|| adminType.equals("Co-ordinator")|| adminType.equals("Branch Meeting Reviewer") ) {
 						response.sendRedirect("mentorIndex.jsp"); 
 					}else  
 					{

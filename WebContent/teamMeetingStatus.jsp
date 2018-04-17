@@ -8,8 +8,7 @@ Connection connection=DbUtil.getConnection();
 
 %>
   <%! 
-   PreparedStatement st =null;
-     
+     java.sql.Statement st =null;
  %>
  <%try{%> 
 <%
@@ -17,23 +16,14 @@ Connection connection=DbUtil.getConnection();
 String status=request.getParameter("status");
 
 String id=request.getParameter("id");
- 
+
+   st= connection.createStatement(); 
   
 // int n =st.executeUpdate("insert into question1 select subjectid from subject where subjectName='"+subjectid+" && insert into question1 values ('"+questionid+"','"+content+"')");
-int n=0;
-st = connection.prepareStatement("update  sub_admin_minutes_meeting set  status = ?  where id='"+id+"'");
-st.setString(1, status);
-n=st.executeUpdate(); 
+int n =st.executeUpdate("update  student_head_meeting set  status = '"+status+"'  where id='"+id+"'"); 
 
-
- 
-  if(n!=0  )
-{
-	response.sendRedirect("viewCoreMeeting.jsp"); 
-}
- 
+response.sendRedirect("viewTeamMeeting.jsp");
 %>
-
  <%}
         catch(SQLException se){
             se.printStackTrace();

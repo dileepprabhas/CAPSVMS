@@ -103,11 +103,11 @@ h1 {
 		j=i;
 		$(".pince:last-child").attr("id","top-news");
 	 	
-		do
+		/* do
 		{
 			count++;
 			k++;
-			}while($(".pince:eq("+k+")").attr("id")!="top-news");
+			}while($(".pince:eq("+k+")").attr("id")!="top-news"); */
 		$(".scroll-up").click(function(){
 			if(count!=i)
 			{
@@ -181,6 +181,7 @@ h1 {
 } catch (Exception e){ 	 	
 }
 if(mentorStatus == 1){
+	 
 	int branchProjectcount = ct.volunteerBranchProjectCount(adminId);
 	int teamProjectcount = ct.volunteerTeamProjectCount(adminId);
 	
@@ -256,13 +257,16 @@ if(mentorStatus == 1){
                         </li>
                         <li   class="nav-item">
                             <a class="nav-link" href="viewCoreMeeting.jsp">View Core Meeting </a>
-                        </li>
+                        </li> 
+                        
                         <li   class="nav-item">
                             <a class="nav-link" href="mentorVmsExperience.jsp">VMS Feedback</a>
                         </li>
                         <li   class="nav-item">
                             <a class="nav-link" href="mentorVmsExperienceView.jsp?pN=1">View VMS Feedback</a>
-                        </li> 
+                        </li>
+                        
+                        
                     </ul>
                 </div> 
             </div> 

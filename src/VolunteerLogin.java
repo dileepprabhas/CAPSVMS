@@ -42,7 +42,7 @@ public class VolunteerLogin extends HttpServlet {
 			String password = request.getParameter("password");
 			  
 			volunteerLoginSt = connection.createStatement();			
-			volunteerLoginRs = volunteerLoginSt.executeQuery("select * from volunteer_registration where email_id='"+username+"' and password='"+password+"' and approve_status='Approved'");
+			volunteerLoginRs = volunteerLoginSt.executeQuery("select id from volunteer_registration where email_id='"+username+"' and password='"+password+"' and approve_status='Approved'");
 			if (volunteerLoginRs.next()) {	
 				String volunteerId=volunteerLoginRs.getString("id");  
 				HttpSession session = request.getSession(); 

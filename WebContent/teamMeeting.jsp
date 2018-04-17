@@ -44,20 +44,12 @@ h1 {
 	margin-bottom: 14px;
 	
  }
- button,button:hover,button:active,button:visited
- {
- color:white;
- }
- 
 .modal-footer {
     padding: 15px;
     text-align: right;
     border-top:none;
-}
-
-     
-    </style>
-        
+} 
+</style>
 
 </head>
 <body>
@@ -67,62 +59,64 @@ h1 {
 <%@ page import ="javax.sql.*" %>
 <%@ page import="com.daniel.util.control.*"  %> 
    
+  
+  
 <div class="outercontainer" style="margin-top:0px; height:100px; background-color: #f8f8f8;">
 	<div class="header-bottom-w3ls" style="padding:22px;">  
 		<div class="row">
 			<div class="col-md-2 logo-w3">
-				<a href="mentorIndex.jsp"><img src="images/logo2.png" alt=" " /> </a>
+				<a href="volunteerIndex.jsp"><img src="images/logo2.png" alt=" " /> </a>
 				<div class="clearfix"></div>
 			</div>  
 			<div class="col-md-8 cart-wthree">  
 			</div>
-			<div class="col-md-2 cart-wthree">  
+			<div class="col-md-2 cart-wthree" style="display:inline-flex;">  
 				 
-					<a href="mentorLogout.jsp" class="w3view-cart"  style="color:#053256;" ><i class="fa fa-sign-out" style="margin-left:15px;"></i><br>Sign Out </a>
+					<a href="volunteerLogout.jsp" class="w3view-cart"  style="color:#053256;" ><i class="fa fa-sign-out" style="margin-left:15px;"></i><br>Sign Out </a>
 				  	 
 			</div>
 			<div class="clearfix"></div>
 		</div>
 	</div>
-</div>   
+</div> 
+
+
 <% try{ %>
   
 <%!  
-	ResultSet ngoDetail=null;
-	int mentorStatus=0; 
-	String adminId =null,PhoneNumber=null;
-	ResultSet usersRs=null; 
+	ResultSet ngoDetail=null,notificationRs=null,userNotificationRs=null;
+	int volunteerStatus=0; 
+	String volunteerId=null; 
+	ResultSet usersRs=null,usersRs1=null; 
 	Control ct = new Control();
 %>
 <% 
-	adminId = (String)session.getAttribute("adminId"); 
-	if(adminId == null)
+	volunteerId = (String)session.getAttribute("volunteerId"); 
+	if(volunteerId == null)
 	{	
-		adminId = (String)session.getAttribute("adminId"); 
-		if(adminId==null){ 
-			response.sendRedirect("adminLogin.jsp?action=LoginAgain"); 
+		volunteerId = (String)session.getAttribute("volunteerId");
+		if(volunteerId==null){ 
+			response.sendRedirect("volunteerLogin.jsp?action=LoginAgain"); 
 		}
 	} 
-	mentorStatus  = ct.checkMentorStatus(request, response,adminId);  
+	volunteerStatus  = ct.checkVolunteerStatus(request, response,volunteerId);  
 } catch (Exception e){ 	 	
 }
-if(mentorStatus == 1){
-	 
-	 
-	
+if(volunteerStatus == 1){	 
 %>  	
  
 <div class="outercontainer" style="padding-top:0px;  padding-right:10px; margin-left:10px; margin-top:10px; margin-right:15px;">
     <div class="row">
-        <div class="col-md-2 col-lg-3 col-sm-4 col-xs-12" >
+        <div class="col-md-2 col-lg-3 col-sm-3 col-xs-12" >
 
             <div class="bootstrap-vertical-nav" >
+	 
  
-                <div   id="collapseExample" style="margin-top:3px;" >
-                    <ul class="nav flex-column" id="exCollapsingNavbar">
+                <div   id="collapseExample"style="margin-top:3px;" >
+                     <ul class="nav flex-column" id="exCollapsingNavbar">
              			<li   class="nav-item" style="text-algin:center">
 		                    <div class="text-center">
-		                     <img src="DisplayMentorPic?name=<%=adminId %>" align="middle" style="  width: 80px;text-aling: center;margin-top: 11px; height: 80px;border-radius: 50%;">
+		                     <img src="DisplayVolunteerPic?name=<%=volunteerId %>"  style="width: 80px;text-aling: center;margin-top: 11px;height: 80px;border-radius: 50%;">
 		                 	</div>
                  		</li>
                 		<li class="nav-item" >
@@ -131,75 +125,81 @@ if(mentorStatus == 1){
 								 	<input    id="myInput" onkeyup="search()" type="text" style="opacity:1; padding: 12px 20px 12px 40px; background-image: url('images/searchicon.png'); background-position: 10px 10px; background-repeat: no-repeat; cursor:text; height:40px;"  name="productPrice" required="" placeholder="Search Feature">
 									 <div class="clearfix"></div>
 								</div> 
-							</form>
+							</form>	 
                     	</li >
                    	</ul>
                     <ul class="nav flex-column" id="exCollapsingNavbar3">
 	                     
+                    		
                        	<li   class="nav-item">
-                         	<a class="nav-link" href="mentorIndex.jsp">Home</a>
+                         	<a class="nav-link" href="volunteerIndex.jsp">Home</a>
                         </li>
-                        <li   class="nav-item">
-                         	<a class="nav-link" href="mentorVolunteerWorkDiary.jsp?pN=1">Work Diary</a>
-                        </li>
-                        <li   class="nav-item">
-                         	<a class="nav-link" href="mentorVolunteerMeeting.jsp?pN=1">Work Meeting</a>
-                        </li>
-                        <li   class="nav-item">
-                         	<a class="nav-link" href="mentorVolunteerTraining.jsp?pN=1">Work Training</a>
-                        </li>                       	 
                         <li  class="nav-item">
-                            <a class="nav-link" href="individualProject.jsp?pN=1">Individual Projects</a>
+                            <a class="nav-link" href="workDiary.jsp">Work Diary</a>
+                        </li> 
+                         <li  class="nav-item">
+                            <a class="nav-link" href="workDiaryView.jsp">View Work Diary</a>
                         </li> 
                         <li  class="nav-item">
-                            <a class="nav-link" href="teamProject.jsp">Team Projects</a>
+                            <a class="nav-link" href="workMeeting.jsp">Work Meeting</a>
                         </li>
-                        <li  class="nav-item">
-                            <a class="nav-link" href="teamProjectView.jsp?pN=1">View Team Projects</a>
-                        </li>
-                        <li  class="nav-item">
-                            <a class="nav-link" href="teamProjectEnrollRequestView.jsp?pN=1"> Team Project Enroll Request</a>
+                         <li  class="nav-item">
+                            <a class="nav-link" href="meetingView.jsp">View Work Meeting</a>
                         </li>
                         <li   class="nav-item">
-                            <a class="nav-link" href="branchProject.jsp">Branch Projects</a>
+                            <a class="nav-link" href="workTraining.jsp">Work Training</a>
                         </li>
                         <li   class="nav-item">
-                            <a class="nav-link" href="branchProjectView.jsp?pN=1">View Branch Projects</a>
+                            <a class="nav-link" href="trainingView.jsp">View Work Training</a>
                         </li>
-                        <li  class="nav-item">
-                            <a class="nav-link" href="branchProjectEnrollRequestView.jsp?pN=1"> Branch Project Enroll Request</a>
-                        </li>   
-                        <li   class="nav-item">
-                            <a class="nav-link" href="viewMonthlyReport.jsp?pN=1">View Monthly Report</a>
-                        </li>  
-                        <li   class="nav-item">
-                            <a class="nav-link active" href="coreMeeting.jsp">Core Meeting</a>
+                         <li   class="nav-item">
+                            <a class="nav-link" href="projectAssigned.jsp?pN=1">Project Assigned</a>
                         </li>
                         <li   class="nav-item">
-                            <a class="nav-link" href="viewCoreMeeting.jsp">View Core Meeting </a>
+                            <a class="nav-link" href="monthlyReport.jsp">Monthly Report</a>
                         </li>
                         <li   class="nav-item">
-                            <a class="nav-link" href="mentorVmsExperience.jsp">VMS Feedback</a>
+                            <a class="nav-link" href="monthlyReportView.jsp">View Monthly Report </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link  " href="viewTeamProject.jsp">View Team Project</a>
                         </li>
                         <li   class="nav-item">
-                            <a class="nav-link" href="mentorVmsExperienceView.jsp?pN=1">View VMS Feedback</a>
+                            <a class="nav-link" href="viewBranchProject.jsp">Branch Project</a>
+                        </li>
+                        <li   class="nav-item">
+                            <a class="nav-link active" href="teamMeeting.jsp">Team Meeting</a>
+                        </li>
+                        <li   class="nav-item">
+                            <a class="nav-link" href="viewBranchProject.jsp">Student Head Meeting</a>
+                        </li>
+                        <li   class="nav-item">
+                            <a class="nav-link" href="grievance.jsp">Grievance</a>
+                        </li>
+                        <li   class="nav-item">
+                            <a class="nav-link" href="grievanceView.jsp">View Grievance  </a>
+                        </li>
+                        <li   class="nav-item">
+                            <a class="nav-link" href="vmsExperience.jsp">VMS Feedback</a>
+                        </li>
+                         <li   class="nav-item">
+                            <a class="nav-link" href="viewVmsExperience.jsp?pN=1">View VMS Feedback</a>
                         </li> 
                     </ul>
                 </div> 
             </div> 
         </div>
-         
-        <div  class="col-md-10 col-lg-9 col-sm-9 col-xs-12" style="padding:3px 0px;">
-        <br> 
-     		<form name="f1" action="Control?action=submitCoreMeeting" method="post" onsubmit="return validate() ">
+        <div class="col-md-10 col-lg-9 col-sm-9 col-xs-12" style="padding:3px 0px;">
+        	<br> 
+     		<form name="f1" action="Control?action=submitStudentHeadMeeting" method="post" onsubmit="return validate() ">
 				<div class="col-lg-6">
 			 		<div class="form-group">
-			 	 		<label>Start Date</label>
+			 	 		<label>Date</label>
 					 	<input required type="date" name="date" placeholder="select the date of meeting" style="opacity:1;" class="form-control">
 				 	</div> 
 					<div class="form-group">
 				 	 	<label>Duration</label>
-				 	 	<select name="duration" required id="dur" class="form-control" >
+				 	 	<select name="duration"  required id="dur" class="form-control" >
 					 		  <option value="">Meeting Duration</option>
 					 		  <option>30 Minutes</option>
 							  <option>60 Minutes</option>
@@ -207,7 +207,7 @@ if(mentorStatus == 1){
 				  	</div>
 					<div class="form-group">
 				 	 	<label>Meeting Called By</label>
-				 	 	<input name="meet_called_by" required type="text"  placeholder="Meeting called by" class="form-control">
+				 	 	<input name="meet_called_by"  required type="text"  placeholder="Meeting called by" class="form-control">
 				  	</div> 
 					<div class="form-group">
 				 	 	<label>Facilitator</label>
@@ -215,20 +215,20 @@ if(mentorStatus == 1){
 				  	</div>	<br>
 				  	<div class="form-group">
 				 	 	<label>Decisions Taken</label>
-				 	 	<textarea  required  name="discussion" placeholder="Decisions Taken in Meeting" class="form-control" ></textarea>
+				 	 	<textarea name="discussion"  placeholder="Decisions Taken in Meeting" class="form-control" ></textarea>
 				  	</div>  
 		 		</div>
  				<div class="col-lg-6">  
 			     	<div class="form-group">
 				 	 	<label>Venue</label>
-				 	 	<input name="vanue" required class="form-control" placeholder="Meeting Venue" type="text" >
+				 	 	<input name="vanue"  required class="form-control" placeholder="Meeting Venue" type="text" >
 			  		</div>
 				  	<div class="form-group">
 					 	<label>Meeting Type</label>
-					 	<select name="meet_type" required class="form-control"  >
+					 	<select   onchange="yesnoCheck(this);" name="meet_type" required class="form-control"  >
 							<option value="">Meeting Type</option>
-							<option>Weekly Meeting</option>
-							<option>Monthly Meeting</option>
+							<option value="Team Meeting">Team Meeting</option>
+							<option value="Student Head Meeting">Student Head Meeting</option>
 						</select>
 			 		</div>  
 				 	<div class="form-group">
@@ -246,24 +246,47 @@ if(mentorStatus == 1){
 				  	</div>
     			</div>
 		     	<div class="text-center">    
-			         <button type="button"  class="btn btn-primary"   style="width:80%;" data-toggle="modal" data-target="#myModal">Next <i class="fa fa-angle-right" style="color:#fff;"></i></button>
+			         <button id="ifYes" style="display:block; margin-left:auto;margin-right:auto;" type="button" class="  btn-lg-6" class="form-control" style="width:80%;" data-toggle="modal" data-target="#myModal">Next</button>
 		    	</div>
-		    	<%usersRs = ct.getBranchProfiles(request,response); %>
+		    	<div class="text-center">    
+			         <button id="studentHead"  style="display:none; margin-left:auto;margin-right:auto;"   type="button" class=" btn-lg-6" class="form-control" style="width:80%;" data-toggle="modal" data-target="#myModal1">Next</button>
+				</div>
+<script>
+    function yesnoCheck(that) {
+        if (that.value == "Team Meeting") {
+             
+            document.getElementById("ifYes").style.display = "block"; 
+            
+        
+            document.getElementById("studentHead").style.display = "none"; 
+        }
+        else if (that.value == "Student Head Meeting") {
+            
+            document.getElementById("studentHead").style.display = "block"; 
+            document.getElementById("ifYes").style.display = "none"; 
+        }
+         
+        	
+    }
+</script>	    	
+		    	<%usersRs = ct.getTeamMates(request,response); %>
+		    	<%usersRs1 = ct.getStudentHeads(request,response); %>
 		    	<!-- Modal -->
 				<div id="myModal" class="modal fade" role="dialog">
 				  <div class="modal-dialog modal-lg modal-sm modal-md modal-xs">
 				
 				    <!-- Modal content-->
-				    <div class="modal-content">
+
+			    <div class="modal-content">
 				      <div class="modal-header">
 				        <button type="button" class="close" data-dismiss="modal">&times;</button>
-				        <h4 class="modal-title">Absentees</h4>
+				        <h4 class="modal-title">Attendees</h4>
 				      </div>
 				      <div class="modal-body">
 				      <%while(usersRs.next()){ %>
-				      	<div class="col-lg-4 col-md-4 col-xs-6 col-sm-6">
-				        	<label class="container"><%=usersRs.getString("name") %>
-						  	<input type="checkbox" name="mentorIds" value="<%=usersRs.getString("id") %>">
+				      	<div class="col-lg-4 col-md-4 col-xs-12 col-sm-6">
+				        	<label class="container"><%=usersRs.getString("volunteer_name") %>
+						  	<input type="checkbox"  name="volunteerIds" value="<%=usersRs.getString("id") %>">
 						  	<span class="checkmark"></span>
 							</label>
 						</div>
@@ -272,7 +295,37 @@ if(mentorStatus == 1){
 				      </div>
 				      <div class="modal-footer">
 				      <hr>
-				      	<button type="submit" class="btn "   value="submit" >Submit</button>
+				      	<button type="submit" class="btn " value="submit" >Submit</button>
+				      	<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				      </div>
+				    </div>
+				
+				  </div>
+				</div>
+				<!-- Modal -->
+				<div id="myModal1" class="modal fade" role="dialog">
+				  <div class="modal-dialog modal-lg modal-sm modal-md modal-xs">
+				
+				    <!-- Modal content-->
+				    <div class="modal-content">
+				      <div class="modal-header">
+				        <button type="button" class="close" data-dismiss="modal">&times;</button>
+				        <h4 class="modal-title">Attendees</h4>
+				      </div>
+				      <div class="modal-body">
+				      <%while(usersRs1.next()){ %>
+				      	<div class="col-lg-4 col-md-4 col-xs-12 col-sm-6">
+				        	<label class="container"><%=usersRs1.getString("volunteer_name") %>
+						  	<input type="checkbox"  name="volunteerIds" value="<%=usersRs1.getString("id") %>">
+						  	<span class="checkmark"></span>
+							</label>
+						</div>
+						<%} %>
+						 
+				      </div>
+				      <div class="modal-footer">
+				      <hr>
+				      	<button type="submit" class="btn " value="submit" >Submit</button>
 				      	<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 				      </div>
 				    </div>
@@ -280,17 +333,14 @@ if(mentorStatus == 1){
 				  </div>
 				</div>
 			</form>
-         </div>
- 	</div>
+		</div>
+		<%}%> 
+	</div>
 </div>
-  
-  
-  
-<%} %>
-<br><br><br>  
+<br><br><br> 
 <div class="footer" style="background-color:#2A3F54;   height:50px;">
 	 <p class="copy-right">© 2018 Sarvahitkari . All rights reserved | Design by <a href="#">Kapil Thakur & Rebecca John</a></p>
-</div> 
+</div>   
 
 <%
 	String action = request.getParameter("action"); 
@@ -298,14 +348,14 @@ if(mentorStatus == 1){
 		 		{
 		 			
 		 		}
-		 		else if(action.equals("coreMeetingSubmitted"))
+		 		else if(action.equals("minutesOfMeetingSubmitted"))
 		 		{%>
 		 			<div id="snackbar"></div>
 		 			<script>
 		 			
 				    var x = document.getElementById("snackbar")
 				    x.className = "show";
-				    x.innerHTML="Core Meeting Has Been Submitted";
+				    x.innerHTML="Minutes of Meeting Submitted Successfully";
 				    setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
 				 
 				</script>

@@ -44,19 +44,11 @@ h1 {
 	margin-bottom: 14px;
 	
  }
- 
- 
+
 </style>
 
-
-    <style type="text/css">
-        
-        
-     
-    </style>
 </head>
-<body>
-
+<body> 
 <%@ page import="java.sql.*" %>
 <%@page import="java.lang.reflect.Array"%>
 <%@ page import ="javax.sql.*" %>
@@ -121,9 +113,7 @@ if(mentorStatus == 1){
 <div class="outercontainer" style="padding-top:0px;  padding-right:10px; margin-left:10px; margin-top:10px; margin-right:15px;">
     <div class="row">
         <div class="col-md-2 col-lg-3 col-sm-4 col-xs-12" >
-
             <div class="bootstrap-vertical-nav" >
- 
                 <div   id="collapseExample" style="margin-top:3px;" >
                     <ul class="nav flex-column" id="exCollapsingNavbar">
              			<li   class="nav-item" style="text-algin:center">
@@ -195,7 +185,7 @@ if(mentorStatus == 1){
 					<a href="mentorVolunteerWorkDiaryView.jsp?vId=<%=volunteerDetailsRs.getString("id")%>" style="color:#333; text-decoration:none;">
 						<li style="list-style:none;" >
 							<div class="collapsible-header active" style="background:#053256;"><p style="padding:5px; font-size:14px;">
-							  	<img style="display:inline-block; width:50px; height:50px; border-radius:50%; margin-lefT:10px; border-style:none; "  src="DisplayVolunteerPic?name=<%=volunteerDetailsRs.getString("id")%>" >&nbsp;&nbsp;
+							  	<img class="img-fluid" onerror="this.src='images/user.png'"  style="display:inline-block; width:50px; height:50px; border-radius:50%; margin-lefT:10px; border-style:none; "  src="DisplayVolunteerPic?name=<%=volunteerDetailsRs.getString("id")%>" >&nbsp;&nbsp;
 								<%= volunteerDetailsRs.getString("volunteer_name") %>
 							 	<span style="float: right; margin-top:10px; margin-right:10px;" ><span class="fa fa-users" style="text-align: right; font-size:22px;  font-style: bold; "> </span> &nbsp;&nbsp; 
 							 		<%= volunteerDetailsRs.getString("team") %>
@@ -205,7 +195,6 @@ if(mentorStatus == 1){
 					</a>
 				</ul>
              <% }  %> 
-             
              <div class="col-lg-12 text-center" style="margin-left:auto; margin-right:auto;">
 					<ul class="pagination " >
 						<% for( int k=1; k<=pageCount; k++){ %>

@@ -2,6 +2,7 @@
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.io.PrintWriter;
 import java.sql.*;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -38,6 +39,10 @@ public class DisplayVolunteerPic extends HttpServlet {
             ps.setString(1,name );
             ResultSet rs = ps.executeQuery();
             rs.next();
+            if(rs.getBlob("photo")==null){
+            	
+            }
+            else if(rs.getBlob("photo")!=null) {
             Blob b = rs.getBlob("photo");
             response.setContentType("image/jpeg");
             response.setContentLength((int) b.length());
@@ -47,6 +52,7 @@ public class DisplayVolunteerPic extends HttpServlet {
             is.read(buf);
             os.write(buf);
             os.close();
+            }
         }  
         catch(SQLException se){
             se.printStackTrace();

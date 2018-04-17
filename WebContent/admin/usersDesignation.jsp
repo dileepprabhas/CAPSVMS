@@ -205,14 +205,14 @@ if(adminId !=null){
             <div class="panel panel-default table-responsive">
              <div class="panel-heading templatemo-position-relative"><h2 class="text-uppercase">Mentors</h2></div>
               
-            <form id="regForm" action="${pageContext.request.contextPath}/Control?action=updateMentorTeams" name="f2" onSubmit="return validateChecks3()" method="post" style="margin-top:0px; padding-top:0px;">  
+            <form id="regForm" action="${pageContext.request.contextPath}/Control?action=updateMentorDesignation" name="f2" onSubmit="return validateChecks3()" method="post" style="margin-top:0px; padding-top:0px;">  
 			  <table class="table table-striped table-bordered templatemo-user-table">
                 <thead>
                   <tr>
                     <td><a href="" class="white-text templatemo-sort-by"># <span class="caret"></span></a></td>
                     <td><a href="" class="white-text templatemo-sort-by">First Name <span class="caret"></span></a></td>
                     <td><a href="" class="white-text templatemo-sort-by">Email<span class="caret"></span></a></td>
-                    <td><a href="" class="white-text templatemo-sort-by">  Status <span class="caret"></span></a></td>
+                    <td><a href="" class="white-text templatemo-sort-by">Designation<span class="caret"></span></a></td>
                   
                     <td><a href="" class="white-text templatemo-sort-by">Team <span class="caret"></span></a></td>
                     <td><a href="" class="white-text templatemo-sort-by">Branch <span class="caret"></span></a></td>
@@ -226,7 +226,7 @@ if(adminId !=null){
 				 	pageNumber = Integer.parseInt(request.getParameter("pageNumber"));
 					volunteerCount = ct.adminProfileCount();
 					pageCount= volunteerCount/10 +1;		  
-					volunteerDetailsRs = ct.mentorDetails(request, response,pageNumber-1, nextRecordCount);
+					volunteerDetailsRs = ct.adminsUsersProfile(request, response,pageNumber-1, nextRecordCount);
 			} catch (Exception e)	{
 				}
 			%>
@@ -246,7 +246,7 @@ if(adminId !=null){
 									<input type="text" readonly name="email"  class="form-control"  value="<%=volunteerDetailsRs.getString("email") %>" >
 								</td>  
 								<td>
-									<input type="text" readonly name="email_status"  class="form-control"   value="<%=volunteerDetailsRs.getString("approve_status") %>" >
+									<input type="text" readonly name="email_status"  class="form-control"   value="<%=volunteerDetailsRs.getString("admin_type") %>" >
 								</td> 
 								 
 								 <%if(volunteerDetailsRs.getString("team") == null) {  %>
@@ -265,24 +265,25 @@ if(adminId !=null){
  								<%}else if(volunteerDetailsRs.getString("branch_id") != null ) {
  									
  								branchName = ct.getBranchName(volunteerDetailsRs.getString("branch_id"));%>
-				                 <td>
+				                <td>
 									<input type="text" readonly name="team5"  class="form-control"   value="<%=branchName%>" >
 								</td>
 								 <%} %>
 							</tr>
 							<input type="hidden" name="pageNumber"  value="<%=pageNumber %>">
 							<% ++k; } %> 
-                </tbody>
-              </table>  
-              <div style="margin:10px;">
+                		</tbody>
+              		</table>  
+              		<div style="margin:10px;">
 						<div class="col-lg-4">
 						<label class="control-label templatemo-block">Select Teams</label>                 
 			                  
-							<select required multiple name="team1" class="templatemo-multi-select form-control" style="overflow-y: scroll;">
-	                				<% 	teamRs = ct.getTeams();  %>
-	              					<% while(teamRs.next() ){ %>
-	              					<option value="<%=teamRs.getString("team_name") %>"><%=teamRs.getString("team_name") %></option>
-	              					<% } %>  
+							<select required   name="designation" class="  form-control"  >
+	                				<option value="">Select User Type</option>
+				                    <option value="Mentor">Mentor</option>  
+				                    <option value="Branch Co-ordinator">Branch Co-ordinator</option>
+				                    <option value="Branch Meeting Reviewer">Branch Meeting Reviewer</option>
+				                    <option value="Co-ordinator">Co-ordinator</option>     
            					</select> 
 						</div>  
 						<div class="col-lg-4">
@@ -297,18 +298,18 @@ if(adminId !=null){
               				<%} %> 
 							</select>
 						</div>
-						<div  class="col-lg-4">
-							<input type="submit"  class="form-control"  value="Update Mentor Team & Branch" >
+						<div  class="col-lg-4"><br> 
+							<input type="submit"  class="form-control" style="margin-top:4px;"  value="Update Mentor Team & Branch" >
 						</div> 
 					</div>
-					</form> 
-			 <div class="col-lg-12 text-center" style="margin-left:auto; margin-right:auto;">
-				<ul class="pagination " >
-					<% for( int k=1; k<=pageCount; k++){ %>
-				    	<li><a href="usersDesignation.jsp?pageNumber=<%=k%>"><%=k%></a></li>
-				    <% } %> 
-			 	</ul>
-		 	</div>  
+				</form> 
+				<div class="col-lg-12 text-center" style="margin-left:auto; margin-right:auto;">
+					<ul class="pagination " >
+						<% for( int k=1; k<=pageCount; k++){ %>
+					    	<li><a href="usersDesignation.jsp?pageNumber=<%=k%>"><%=k%></a></li>
+					    <% } %> 
+				 	</ul>
+			 	</div>  
             </div>                         
           </div> 
                    
@@ -483,13 +484,13 @@ if(adminId !=null){
     setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
  
 </script>
-<%}else if(action.equals("mentorTeamBranchAssigned")){ 
+<%}else if(action.equals("mentorDesignationAssigned")){ 
  %>
 	 <script>
  
     var x = document.getElementById("snackbar")
     x.className = "show";
-    x.innerHTML="New Team and Branch Has been Updated";
+    x.innerHTML="Mentor Designation Has Been Assigned";
     setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
  
 </script>

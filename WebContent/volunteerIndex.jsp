@@ -257,6 +257,12 @@ if(volunteerStatus == 1){
                             <a class="nav-link" href="viewBranchProject.jsp">Branch Project</a>
                         </li>
                         <li   class="nav-item">
+                            <a class="nav-link" href="teamMeeting.jsp">Team Meeting</a>
+                        </li>
+                        <li   class="nav-item">
+                            <a class="nav-link" href="viewTeamMeeting.jsp">View Team Meeting</a>
+                        </li>
+                        <li   class="nav-item">
                             <a class="nav-link" href="grievance.jsp">Grievance</a>
                         </li>
                         <li   class="nav-item">
