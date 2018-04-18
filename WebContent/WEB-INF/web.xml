@@ -99,6 +99,10 @@
   <param-name>EncryptionLength</param-name>
   <param-value>10</param-value>
 </context-param>
+<context-param>
+    	<param-name>AdministratorEmail</param-name>
+    	<param-value>mkyong2002@yahoo.com</param-value>
+</context-param>
 
 <session-config>
     <session-timeout>60</session-timeout>

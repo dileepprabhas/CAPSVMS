@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Sarv Hitkari VMS</title>
+<title>VMS</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="Teach For India , PrismVMS " />
@@ -16,8 +16,8 @@
 <link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
 <!-- //font -->
 <script src="js/jquery-1.11.1.min.js"></script>
-<script src="js/bootstrap.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="js/bootstrap.js"></script><!-- 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
 <link rel="stylesheet" type="text/css" href="css/responsive.css">
 <link rel="shortcut icon" href="images/logo2_.ico" />
 </head>
@@ -78,8 +78,7 @@
 	{
 		height:650px;
 		width:auto;
-		overflow:hidden;
-		background:#b3c1c7;
+		overflow:hidden; 
 	}
 	.container-login
 	{
@@ -278,6 +277,11 @@
 	height:450px;
 	padding:0px;
 	}
+	 .team1 h3  {
+    font-size: 40px;
+    color: #000;
+    margin-bottom: 40px;
+}
 </style>
 <body>
 <%@ page import="java.sql.*" %>
@@ -293,11 +297,11 @@
 <div class="outercontainer" >
 	<div class="header-bottom-w3ls">  
 		<div class="row">
-			<div class="col-md-2 logo-w3">
+			<div class="col-md-3 logo-w3">
 				<a href="index.jsp"><img src="images/logo2.png" alt=" " /> </a>
 				<div class="clearfix"></div>
 			</div> 
-			<div class="col-md-8 navigation-agileits">
+			<div class="col-md-7 navigation-agileits">
 				<nav class="navbar navbar-default">
 					<div class="navbar-header nav_2">
 						<button type="button" class="navbar-toggle collapsed navbar-toggle1" data-toggle="collapse" data-target="#bs-megadropdown-tabs">
@@ -317,18 +321,19 @@
 					</div>
 				</nav>
 			</div>  
+			<div class="col-md-2 " >
+			<a href="https://christuniversity.in" target="_blank"><img src="images/logo.jpg" class="christLogo" align="right" ></a>
+			</div>
+			
 			  
 			  	    
 			<div class="clearfix"></div>
 		</div>
 	</div>
-</div>	  											
- 
- <div class="outercontainer team" id="team">
+</div>	   
+ <div class="outercontainer team sub-banner" id="team" >
 	<div class="container-login" >
-	 <video autoplay muted loop id="myVideo">
- 	<source src="images/back.mp4" type="video/mp4">
-	</video> 
+	 
 	<div id="login">
 		<div id="login-box">
 			<h2>Login</h2>
@@ -351,13 +356,12 @@
 	</div>
 	</div>
 </div>
-</div>
-<div class="about" style="z-index:50; ">
+</div> 
+<div class="about">
 	<div class="container"> 
 		<h3>About Us</h3>
 		<div class="about-info">
- 
-		<div class="col-md-8 about-grids">
+			<div class="col-md-8 about-grids">
 				<h4>Our Advantages:</h4>
 				<p>We aim to connect volunteers and mentors for India's education</p>		
 					<div class="about-w3ls-row">
@@ -462,78 +466,35 @@
 	</div>
 <!-- //about-bottom -->
 <!--team--> 
-<div class="team" id="team">
+<div class="team1" id="team1">
 	<div class="container">
-		<h3> Our Team</h3>
-		<div class="team-grids">
-			<div class="col-md-3 team-grid">
-				<div class="team-img">
-					<img src="images/t1.jpg" class="img-responsive" alt=" " style="border:2px solid black;" />
-					<figcaption class="overlay">
-						<div class="social-icon">
-							
-							<a href="https://www.facebook.com/rebecca.john.98837"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-							<a href="https://www.linkedin.com/in/rebecca-john-b3532980/"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
-						</div>
-					</figcaption>
-				</div>
-				<h4>Rebecca John</h4>
-				<h5>Partner</h5>
-				<a href="partnerProfile/indexreb.html">View Profile</a>
+		<h3>Web Developmet By</h3>
+		<div class="team-grids text-center">
+			<div class="col-md-5 team-grid" >
 			</div>
-			<div class="col-md-3 team-grid">
-				<div class="team-img">
-					<img src="images/kapil.jpg" class="img-responsive" alt=" " style="width:400px; border:2px solid black;" />
-					<figcaption class="overlay">
-						<div class="social-icon">
-							
-							<a href="https://m.facebook.com/profile.php?id=100008311602293&ref=content_filter"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-							<a href="https://www.linkedin.com/in/kapil-thakur/"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
-						</div>
-					</figcaption>
-				</div> 
-				<h4>Kapil Thakur</h4>
-				<h5>Partner</h5>
-				<a href="partnerProfile/index(1).html">View Profile</a>
-			</div>
-			<div class="col-md-3 team-grid">
-				<div class="team-img">
-					<img src="images/bhargaviMaam.jpg" class="img-responsive" alt=" " />
-					<figcaption class="overlay">
-						<div class="social-icon">
-							
-							<a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-							<a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
-						</div>
-					</figcaption>
-				</div>
-				<h4>Dr. Bhargavi Goswami</h4>
-				<h5>Guide</h5>
-				<a href="https://christuniversity.in/computer-science/faculty-details/MjQ1NQ==/NjI="> View Profile</a>
-		
-			</div>
-			<div class="col-md-3 team-grid">
-				<div class="team-img">
-					<img src="images/vaidhehiMaam.jpg" style="border:2px solid black;" class="img-responsive" alt=" " />
-					<figcaption class="overlay">
-						<div class="social-icon">
-							
-							<a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-							<a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
-						</div>
-					</figcaption>
-				</div>
-				<h4>Prof. Vaidhehi V</h4>
-				<h5>Guide</h5>
-			<a href="https://christuniversity.in/computer-science/faculty-details/MzA0/NjI=">View Profile	</a>
-			</div>
+			<div class="col-md-3 team-grid" >
 			
+				<div class="team-img">
+					<a href="developerProfile/index(1).html"><img src="images/kapil.jpg" class="img-responsive" alt=" " style=" border-radius:50%; width:200px; height:200px; border:.7rem solid rgb(42, 63, 84,1);;" /></a>
+				</div> 
+				<div class="text-left">
+					<h4 style="text:center;">Kapil Thakur</h4>
+					<h5 style="text:center;">Developer</h5>
+				
+					<a  href="developerProfile/index(1).html">View Profile</a>
+					<a style="margin:10px;" href="https://m.facebook.com/profile.php?id=100008311602293&ref=content_filter"><i class="fa fa-facebook" style="font-size:22px;" aria-hidden="true"></i></a>
+					<a href="https://www.linkedin.com/in/kapil-thakur/"><i class="fa fa-linkedin"  style="font-size:22px;" aria-hidden="true"></i></a>
+				
+				</div>
+				
+			</div>
+			<div class="col-md-4 team-grid" >
+			</div>
 			<div class="clearfix"></div>
 		</div>
 	</div>
 </div>
 <!--team-->
- <hr style="color:#eee; height:15px;">
 <div class="footer">
 	<div class="container">
 		<div class="col-md-3 footer-grids fgd1">
@@ -541,7 +502,7 @@
 		<ul>
 			<li>Christ University</li>
 			<li>Bangalore-560029</li>
-			<li><a href="mailto:info@example.com">prismhack@gmail.com</a></li>
+			<li><a href="mailto:caps@christuniversity.in">caps@christuniversity.in</a></li>
 			<a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
 			<a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
 			<a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
@@ -569,7 +530,7 @@
 </div>
 
 	 <div class="footer" style="background-color:#2A3F54;   height:50px;">
-	 <p class="copy-right">© 2018 Sarvahitkari . All rights reserved | Design by <a href="#">Kapil Thakur & Rebecca John</a></p>
+	 <p class="copy-right">© 2018 CAPS . All rights reserved | Web Development by <a target="_blank" style="color:" href="https://www.linkedin.com/in/kapil-thakur/">Kapil Thakur </a></p>
 </div> 
 	<!-- //cart-js -->   
 	

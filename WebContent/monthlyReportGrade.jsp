@@ -2,7 +2,7 @@
 <%@page import="java.util.ArrayList"%>
 <html lang="en">
 <head>
-<title>Sarv Hitkari VMS</title>
+<title>VMS</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="Teach For India , PrismVMS " />
@@ -64,18 +64,18 @@ h1 {
    
   
   
-<div class="outercontainer" style="margin-top:0px; height:100px; background-color: #f8f8f8;">
-	<div class="header-bottom-w3ls" style="padding:22px;">  
+<div class="outercontainer" style="margin-top:0px; height:90px; background-color: #f8f8f8;">
+	<div class="header-bottom-w3ls" >  
 		<div class="row">
 			<div class="col-md-2 logo-w3">
 				<a href="mentorIndex.jsp"><img src="images/logo2.png" alt=" " /> </a>
 				<div class="clearfix"></div>
 			</div>  
-			<div class="col-md-8 cart-wthree">  
+			<div class="col-md-7 cart-wthree">  
 			</div>
-			<div class="col-md-2 cart-wthree">  
-				 
-					<a href="mentorLogout.jsp" class="w3view-cart"  style="color:#053256;" ><i class="fa fa-sign-out" style="margin-left:15px;"></i><br>Sign Out </a>
+			<div class="col-md-3 cart-wthree">  
+			 	<a href="mentorLogout.jsp" class="w3view-cart"  style="color:#053256;" ><i class="fa fa-sign-out" style="margin-left:15px;"></i><br>Sign Out </a>
+				<a href="https://christuniversity.in" target="_blank"><img src="images/logo.jpg" class="christLogo" align="right" ></a>
 			</div>
 			<div class="clearfix"></div>
 		</div>
@@ -397,7 +397,7 @@ String email = request.getParameter("email");
 <%} %>
 <br><br><br>  
 <div class="footer" style="background-color:#2A3F54;   height:50px;">
-	 <p class="copy-right">© 2018 Sarvahitkari . All rights reserved | Design by <a href="#">Kapil Thakur & Rebecca John</a></p>
+	 <p class="copy-right">© 2018 CAPS . All rights reserved | Web Development by <a target="_blank" style="color:" href="https://www.linkedin.com/in/kapil-thakur/">Kapil Thakur </a></p>
 </div> 
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/js/materialize.min.js"></script>

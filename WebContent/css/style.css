@@ -84,22 +84,33 @@ img {
   /*  .logo-w3{
 	width:70%;
 	float:left;
-}   */  
+}
+   */
+   
+  
+   .christLogo
+   {
+    width: auto;
+    height: 75px;
+    position: absolute;
+   	top: 0px;
+   }
 .logo-w3 a h1,.footer a h3{
 	text-align:left;
 	color:#000;
 	font-size:40px;
 	position:relative;
 }
-.logo-w3 img,.footer img {
-         width: 75%;
+.logo-w3 img {
+      width: auto;
+    height: 63px;
     position: absolute;
-    margin: 2px 42px;
+    margin: 2px 50px;
 }
 .footer img {
-	width:13%;
-	top: 2px;
-    left: -22px;
+	    width: 41%;
+    top: -22px;
+    left: -34px;
 }
 .logo-w3 a h1 span ,.footer a h3 span {
     color: #000;
@@ -113,6 +124,8 @@ img {
     top: 6px;
     left: 70px;
 }
+
+
 .phone-w3l {
     text-align: right;
 	width:50%;
@@ -128,7 +141,8 @@ img {
 }
 .header-bottom-w3ls {
     background: #F8F8F8;
-	padding:20px 0;
+	padding:5px 0;
+	height:90px;
 }
 .navbar-default {
     border-color: transparent;
@@ -290,8 +304,12 @@ button.w3view-cart:focus{
 
 
 /*--banner bottom--*/
-.banner-bootom-w3-agileits,.top-products,.fandt,.top-brands,.newsletter,.footer,.content,.contact,.about,.team,.main-grid-border,.faq,.products,.collpse.tabs,.login,.check-out,.payment{
+.banner-bootom-w3-agileits,.top-products,.fandt,.top-brands,.newsletter,.content,.contact,.about,.team,.main-grid-border,.faq,.products,.collpse.tabs,.login,.check-out,.payment{
 	padding:50px 0;
+}
+.footer
+{
+	padding:40px 0;
 }
 .top-products h3,.features h3,.top-brands h3,.contact h3,.about h3,.team h3,h3.agileits-icons-title,.faq h3,.products h3,.login h3,.check-out h3,.payment h3{
 	font-size:40px;
@@ -893,7 +911,7 @@ p.copy-right{
 	color:#363636;
 }
  p.copy-right a{
-	color:#363636;
+	color:#00a4e4;
  }
   p.copy-right a:hover{
 	text-decoration:underline;

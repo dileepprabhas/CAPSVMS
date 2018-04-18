@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Sarv Hitkari VMS</title>
+<title>VMS</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="Teach For India , PrismVMS " />
@@ -23,11 +23,11 @@
 <div class="outercontainer">
 	<div class="header-bottom-w3ls">  
 		<div class="row">
-			<div class="col-md-2 logo-w3">
+			<div class="col-md-3 logo-w3">
 				<a href="index.jsp"><img src="images/logo2.png" alt=" " /> </a>
 				<div class="clearfix"></div>
 			</div> 
-			<div class="col-md-8 navigation-agileits">
+			<div class="col-md-7 navigation-agileits">
 				<nav class="navbar navbar-default">
 					<div class="navbar-header nav_2">
 						<button type="button" class="navbar-toggle collapsed navbar-toggle1" data-toggle="collapse" data-target="#bs-megadropdown-tabs">
@@ -39,14 +39,18 @@
 					</div> 
 					<div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
 						<ul class="nav navbar-nav ">
-							<li><a href="index.jsp" class="hyper "><span>Home</span></a></li>	
-							<li><a href="about.html" class="hyper"><span>About</span></a></li>
+							<li ><a href="index.jsp" class="hyper "><span>Home</span></a></li>	
+							<li ><a href="about.html" class="hyper"><span>About</span></a></li>
 							<li class=" active"><a href="contact.jsp" class="hyper"><span>Contact Us</span></a></li>
-							<li class=" "><a href="faq.jsp" class="hyper"><span>FAQ</span></a></li>
+							<li ><a href="faq.jsp" class="hyper"><span>FAQ</span></a></li>
 						 </ul>
 					</div>
 				</nav>
 			</div>  
+			<div class="col-md-2 cart-wthree "  style="display:inline-flex;">
+			<a href="https://christuniversity.in" target="_blank"><img src="images/logo.jpg" class="christLogo" align="right" ></a>
+			</div>
+			
 			  
 			  	    
 			<div class="clearfix"></div>
@@ -94,7 +98,7 @@
 		<ul>
 			<li>Christ University</li>
 			<li>Bangalore-560029</li>
-			<li><a href="mailto:info@example.com">prismhack@gmail.com</a></li>
+			<li><a href="mailto:caps@christuniversity.in">caps@christuniversity.in</a></li>
 			<a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
 			<a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
 			<a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>

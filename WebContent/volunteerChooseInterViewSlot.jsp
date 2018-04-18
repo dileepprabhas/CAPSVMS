@@ -2,7 +2,7 @@
 <%@page import="java.util.ArrayList"%>
 <html lang="en">
 <head>
-<title>Sarv Hitkari VMS</title>
+<title>VMS</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="Teach For India , PrismVMS " />
@@ -210,7 +210,7 @@ h1 {
   
 <br><br><br> 
 <div class="footer" style="background-color:#2A3F54;   height:50px;">
-	 <p class="copy-right">© 2018 Sarvahitkari . All rights reserved | Design by <a href="#">Kapil Thakur & Rebecca John</a></p>
+	 <p class="copy-right">© 2018 CAPS . All rights reserved | Web Development by <a target="_blank" style="color:" href="https://www.linkedin.com/in/kapil-thakur/">Kapil Thakur </a></p>
 </div> 
 	  
 
