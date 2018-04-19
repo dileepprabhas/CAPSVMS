@@ -687,14 +687,13 @@ private void addTrainingType( HttpServletRequest request, HttpServletResponse re
     HttpSession session = request.getSession();
 	String adminId = (String)session.getAttribute("adminId");
 	if(adminId !=null) {
-	String training_type = request.getParameter("trainingType");
-	String teamId = request.getParameter("teamId");
+	String training_type = request.getParameter("trainingType"); 
 	Statement trainingTypeSt = null;
 	ResultSet trainingTypeRs = null;
 	 
 	try {
 			trainingTypeSt = connection.createStatement();
-			String checkQ ="select training_type from training_type where training_type ='"+training_type+"' and team_id='"+teamId+"'";
+			String checkQ ="select training_type from training_type where training_type ='"+training_type+"' ";
 			trainingTypeRs = trainingTypeSt.executeQuery(checkQ);
 			
 			 if (trainingTypeRs.next())	{
@@ -702,10 +701,9 @@ private void addTrainingType( HttpServletRequest request, HttpServletResponse re
 			 }
 			 else   {  
 				PreparedStatement addCategoryPs =null;
-				String query = "insert into training_type (training_type,team_id) values(?,?)";
+				String query = "insert into training_type (training_type) values(?)";
 				addCategoryPs  =  connection.prepareStatement(query);
-				addCategoryPs.setString(1, training_type); 
-				addCategoryPs.setString(2, teamId); 
+				addCategoryPs.setString(1, training_type);
 				addCategoryPs.executeUpdate();	
 				response.sendRedirect("admin/index.jsp?action=TrainingAdded");
   
@@ -841,6 +839,38 @@ private void addTrainingType( HttpServletRequest request, HttpServletResponse re
 		try {  				
 			meetingTypeSt = connection.createStatement();
 				String query = "select *   from meeting_type";
+				meetingTypeRs = meetingTypeSt.executeQuery(query);
+				 
+		} 
+	catch (SQLException e) {
+			// TODO: handle exception
+		e.printStackTrace();
+		}
+	 catch (Exception e) {
+			// TODO: handle exception
+			 e.printStackTrace();
+		}
+		finally {
+			
+			/*if(NgoDetailSt!=null)
+				try {
+					NgoDetailSt.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}*/
+	    	 
+		}
+		return meetingTypeRs;
+
+	}
+	public   ResultSet getTrainingType() throws ServletException, IOException { 
+		Statement meetingTypeSt =null;
+		ResultSet meetingTypeRs = null;
+		  
+		try {  				
+			meetingTypeSt = connection.createStatement();
+				String query = "select *   from training_type";
 				meetingTypeRs = meetingTypeSt.executeQuery(query);
 				 
 		} 
@@ -5808,6 +5838,37 @@ public   ResultSet getVoluntterMeetings() throws ServletException, IOException {
 	try {  				
 			getMeetingSt = connection.createStatement();
 			String query = "select meeting_type  from meeting_type  ";
+			getMeetingRs = getMeetingSt.executeQuery(query); 
+			 
+	} 
+catch (SQLException e) {
+		// TODO: handle exception
+	e.printStackTrace();
+	}
+ catch (Exception e) {
+		// TODO: handle exception
+		 e.printStackTrace();
+	}
+	finally {
+		
+		/*if(NgoDetailSt!=null)
+			try {
+				NgoDetailSt.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}*/
+    	 
+	}
+	return getMeetingRs; 
+}
+public   ResultSet getVoluntterTrainings() throws ServletException, IOException { 
+	Statement getMeetingSt =null;
+	ResultSet getMeetingRs = null;
+
+	try {  				
+			getMeetingSt = connection.createStatement();
+			String query = "select training_type  from training_type  ";
 			getMeetingRs = getMeetingSt.executeQuery(query); 
 			 
 	} 

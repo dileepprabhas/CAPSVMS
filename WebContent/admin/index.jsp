@@ -191,13 +191,7 @@ if(adminId !=null){
              		<!-- <input type="submit" class="form-control" value="View" > 
               		 --></form><hr> 
               		<form action="${pageContext.request.contextPath}/Control?action=addTraining" method="post" >
-              		 	<select required class="form-control"   name="teamId"> 
-              				<option value="">Choose Team  </option>
-              				<% teamRs = ct.getTeams(); %>
-              				<% while(teamRs.next() ){ %>
-              					<option value="<%=teamRs.getString("id") %>"> <%=teamRs.getString("team_name") %></option>
-              				<%} %> 
-              			</select><br>
+              		 	<br>
               		<input type="text"  required class="form-control" Placeholder="Training Type" name="trainingType">
              	 	<br>
              		<input type="submit" class="form-control" value="Add  Training Type" >
@@ -205,16 +199,16 @@ if(adminId !=null){
               		</form><hr>
               		 
               		<form name="getTrainingForm" action="${pageContext.request.contextPath}/Control?action=addTraining" method="post" >
-              		 	<select required class="form-control"  onchange="loadXMLDoc()"  name="teamId"> 
-              				<option value="">Choose Team  </option>
-              				<% teamRs = ct.getTeams();
+              		 	
+	              		<select required class="form-control"   name="meetingType"> 
+              				<option value="">View Training Type</option>
+              			  	<% 	 
+              			   		meetingRs = ct.getTrainingType();
               				%>
-              				<% while(teamRs.next() ){ %>
-              					<option value="<%=teamRs.getString("id") %>"> <%=teamRs.getString("team_name") %></option>
-              				<%} %> 
-              			</select><br>
-	              		<input type="text"  required class="form-control" Placeholder="Training Type" name="trainingType">
-	             	 	<br>
+              				<% while(meetingRs.next() ){ %>
+              					<option value="<%=meetingRs.getString("id") %>"><%=meetingRs.getString("training_type") %></option>
+              				<%} %>   
+              			</select><br><br>
 	             		<input type="submit" class="form-control" value="Add  Training Type" >
 	             	<!-- 	<script type="text/javascript">
 							function loadXMLDoc()

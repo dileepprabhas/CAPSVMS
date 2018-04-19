@@ -139,7 +139,6 @@ body {
  
  }else if(action!=null)
  {
-	 
   
   %><%if(action.equals("useNewPassword")){ 
  %>

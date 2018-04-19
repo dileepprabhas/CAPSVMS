@@ -67,13 +67,13 @@ h1 {
 <div class="outercontainer" style="margin-top:0px; height:90px; background-color: #f8f8f8;">
 	<div class="header-bottom-w3ls" >  
 		<div class="row">
-			<div class="col-md-7 cart-wthree">
+			<div class="col-md-2 logo-w3">
 				<a href="volunteerIndex.jsp"><img src="images/logo2.png" alt=" " /> </a>
 				<div class="clearfix"></div>
 			</div>  
 			<div class="col-md-7 cart-wthree">  
 			</div>
-			<div class="col-md-3 cart-wthree">  
+			<div class="col-md-3 cart-wthree" style="display:inline-flex;">  
 				 
 					<a href="volunteerLogout.jsp" class="w3view-cart"  style="color:#053256;" ><i class="fa fa-sign-out" style="margin-left:15px;"></i><br>Sign Out </a>
 				  	<a href="https://christuniversity.in" target="_blank"><img src="images/logo.jpg" class="christLogo" align="right" ></a> 
@@ -81,7 +81,7 @@ h1 {
 			<div class="clearfix"></div>
 		</div>
 	</div>
-</div> 
+</div>
 <% try{ %>
   
 <%!  

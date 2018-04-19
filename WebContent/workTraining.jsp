@@ -212,13 +212,10 @@ if(volunteerStatus == 1){
 				<label>Choose training type</label>
 				<select required name="training"  class="form-control">
 				<option value="">Select Training Type</option>
-			<%	   
-		  		teamName = ct.getVolunteerTeam(volunteerId);
-				String teamId = ct.getTeamId(teamName);
-				trainingRs = ct.getTrainging(teamId);  
-			 	while(trainingRs.next()){
-			%>
-			 	<option value="<%=trainingRs.getString("training_type")%>"><%=trainingRs.getString("training_type")%></option>
+				<% trainingRs = ct.getVoluntterTrainings();  
+					while(trainingRs.next()){
+				%>
+			 		<option value="<%=trainingRs.getString("training_type")%>"><%=trainingRs.getString("training_type")%></option>
 				<%} %>
 			</select>
 			</div>

@@ -187,7 +187,10 @@ if(mentorStatus == 1){
                             <a class="nav-link" href="coreMeeting.jsp">Core Meeting</a>
                         </li>
                         <li   class="nav-item">
-                            <a class="nav-link active" href="viewCoreMeeting.jsp">View Core Meeting </a>
+                            <a class="nav-link " href="viewCoreMeeting.jsp">View Core Meeting </a>
+                        </li>
+                        <li   class="nav-item">
+                            <a class="nav-link active" href="viewVolunteerMeeting.jsp">View Volunteer Meeting</a>
                         </li>
                         <li   class="nav-item">
                             <a class="nav-link" href="mentorVmsExperience.jsp">VMS Feedback</a>
@@ -238,7 +241,7 @@ if(mentorStatus == 1){
 								<div class="col-lg-6">
 									<span style="font-size:12px;  color:red;"> &nbsp;&nbsp;&nbsp; To  save changes,  click on 'Update Changes'</span>
 								</div>
-								<form name="fn<%=meetingRs.getString("s.id")%>" id="f<%=meetingRs.getString("s.id")%>" action="coreMeetingEdit.jsp" method="post">
+								<form name="fn<%=meetingRs.getString("s.id")%>" id="f<%=meetingRs.getString("s.id")%>" action="mentorVolunteerMeetingEdit.jsp" method="post">
 								 	<input type="hidden" name="id" value="<%=meetingRs.getString("s.id")%>">
 									<div class="col-lg-6" >
 										<div class="form-group">
@@ -294,8 +297,8 @@ if(mentorStatus == 1){
 									</div>
 									 <span><p id="msg<%=i%>" style="color: red; font-size:17px; display: inline-block;" > </p></span>
 									 <div class="center"  style=" text-align:center; margin:20px auto;  z-index:10;">
-										<a class="btn btn-primary" href="coreMeetingStatus.jsp?id=<%=meetingRs.getString("s.id") %>&status=Approved"  ><span class="fa fa-check-square-o" style="font-size:18px; padding:3px;"><span style="font-size:14px;"> Approve</span></span> </a> 
-				    					<a class="btn btn-primary" href="coreMeetingStatus.jsp?id=<%=meetingRs.getString("s.id") %>&status=Rejected" ><span  style="font-size:18px; padding:3px;" class="glyphicon glyphicon-remove-circle"><span style="font-size:14px;"> Reject</span></span></a>
+										<a class="btn btn-primary" href="mentorVolunteerMeetingStatus.jsp?id=<%=meetingRs.getString("s.id") %>&status=Approved"  ><span class="fa fa-check-square-o" style="font-size:18px; padding:3px;"><span style="font-size:14px;"> Approve</span></span> </a> 
+				    					<a class="btn btn-primary" href="mentorVolunteerMeetingStatus.jsp?id=<%=meetingRs.getString("s.id") %>&status=Rejected" ><span  style="font-size:18px; padding:3px;" class="glyphicon glyphicon-remove-circle"><span style="font-size:14px;"> Reject</span></span></a>
 			  							<a class="btn btn-primary" href="#"      data-toggle="modal" data-target="#myModal<%=i %>"    ><span   style="font-size:18px;"   class="fa fa-commenting-o"><span style="font-size:18px; padding:3px;"> Comment</span></span></a>
 									 	<a class="btn btn-primary" href="#" id="a<%=meetingRs.getString("s.id")%>" type="submit"  ><span style="font-size:18px;"  class="fa fa-edit"><span style="font-size:18px; padding:3px;"> Update Changes</span></span> </a>
 									</div>
@@ -372,7 +375,7 @@ if(mentorStatus == 1){
 							     String comment_id= meetingRs.getString("s.id");
 							      statement1 = connection.createStatement() ;
 							      resultset1 = 
-							      statement1.executeQuery("select * from sub_admin_minutes_meeting_comment where sub_admin_minutes_meeting_id='"+comment_id+"'");
+							      statement1.executeQuery("select * from student_head_meeting_comment where student_head_meeting_id='"+comment_id+"'");
 							
 							      
 							      %>
@@ -403,7 +406,7 @@ if(mentorStatus == 1){
 							        <br>
 							         <br>
 							           <div class="row" style=" float:left; text-align:center; bottom:0px;width:100%;">
-							         <form style="width:100%" action="coreMeetingComment.jsp">
+							         <form style="width:100%" action="mentorVolunteerMeetingComment.jsp">
 							         <input type="hidden" name="id" value="<%=comment_id%>">
 							         
 								         <textarea class="text-area"  placeholder='Comment Box'  style="background: #ddd; padding:5x; color:#333; width:85%;" required name="comment" rows="3" cols="100"></textarea>

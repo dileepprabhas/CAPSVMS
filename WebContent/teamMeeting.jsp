@@ -171,8 +171,8 @@ if(volunteerStatus == 1){
                         <li   class="nav-item">
                             <a class="nav-link active" href="teamMeeting.jsp">Team Meeting</a>
                         </li>
-                        <li   class="nav-item">
-                            <a class="nav-link" href="viewBranchProject.jsp">Student Head Meeting</a>
+                         <li   class="nav-item">
+                            <a class="nav-link " href="viewTeamMeeting.jsp">View Team Meeting</a>
                         </li>
                         <li   class="nav-item">
                             <a class="nav-link" href="grievance.jsp">Grievance</a>

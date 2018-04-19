@@ -31,7 +31,7 @@ body {
 	<div class="header-bottom-w3ls">  
 		<div class="row">
 			<div class="col-md-3 logo-w3">
-				<a href="index.jsp"><img src="images/logo2.png" alt=" " /> </a>
+				<a href="index.jsp"><img src="../images/logo2.png" alt=" " /> </a>
 				<div class="clearfix"></div>
 			</div> 
 			<div class="col-md-6 navigation-agileits">
@@ -44,18 +44,18 @@ body {
 							<span class="icon-bar"></span>
 						</button>
 					</div> 
-					<div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
+					<!-- <div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
 						<ul class="nav navbar-nav ">
 							<li ><a href="index.jsp" class="hyper "><span>Home</span></a></li>	
 							<li ><a href="about.html" class="hyper"><span>About</span></a></li>
 							<li><a href="contact.jsp" class="hyper"><span>Contact Us</span></a></li>
 							<li class=" "><a href="faq.jsp" class="hyper"><span>FAQ</span></a></li>
 						 </ul>
-					</div>
+					</div> -->
 				</nav>
 			</div>  
 			<div class="col-md-3 " >
-			<a href="https://christuniversity.in" target="_blank"><img src="images/logo.jpg" class="christLogo" align="right" ></a>
+			<a href="https://christuniversity.in" target="_blank"><img src="../images/logo.jpg" class="christLogo" align="right" ></a>
 			</div>
 			
 			  
